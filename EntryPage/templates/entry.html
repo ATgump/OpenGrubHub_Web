@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- <form method="POST"> {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Save" />
+
+</form> -->
+<a href="login">
+    <button>Login</button>
+ </a>
+
+ <a href="register">
+    <button>Create Account</button>
+ </a>
+
+ <a href="AboutUs">
+   <button>About Us</button>
+</a>
+
+<a href="{% url 'Profiles:board_view' %}">
+   <button>Board</button>
+</a>
+
+<a href="{% url 'FileUpload:css-upload' %}">
+   <button>CSS Upload Test</button>
+</a>
+
+
+{% endblock %}

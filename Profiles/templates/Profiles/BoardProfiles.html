@@ -1,0 +1,9 @@
+{% block content %}
+<h1>THIS IS A TEST</h1>
+{% for user in object_list %}
+    {% if user.profile.role == 3 %}
+    <p>{{ user.id }} - <a href='{{ user.profile.get_absolute_url }}'>{{ user.username }}</a></p>
+    {% endif %}
+{% endfor %}
+
+{% endblock %}
