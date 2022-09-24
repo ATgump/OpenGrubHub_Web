@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'OpenGrubHub_Web',
     'Profiles',
     'FileUpload',
+    'ReservationApp',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,8 @@ TEMPLATES = [
             os.path.join(BASE_DIR,"templates"),
             os.path.join(BASE_DIR,"EntryPage","templates"),
             os.path.join(BASE_DIR,"Profiles","templates"),
-            os.path.join(BASE_DIR,"FileUoload","templates"),
+            os.path.join(BASE_DIR,"FileUpload","templates"),
+            os.path.join(BASE_DIR,"ReservationApp","templates"),
         
         
         ],
@@ -138,6 +140,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     BASE_DIR / "static",
+    BASE_DIR / "ReservationApp/static"
 
 ]
 
