@@ -52,27 +52,3 @@ class RestaurantProfileForm(forms.ModelForm):
     class Meta:
         model=RestaurantProfile
         fields=('address',)
-# class CustomerProfileForm(UserCreationForm):
-#     birth_date = forms.DateField()
-#     class Meta(UserCreationForm.Meta):
-#         model= User
-#     @transaction.atomic
-#     def save(self):
-#         user = super().save(commit=False)
-#         user.is_customer = True
-#         user.save()
-#         customer = CustomerProfile.objects.create(user=user)
-#         customer.birth_date.add(*self.cleaned_data.get('birth_date'))
-
-
-# class RestaurantProfileForm(UserCreationForm):
-#     address = forms.CharField(max_length=140)
-#     class Meta(UserCreationForm.Meta):
-#         model= User
-#     @transaction.atomic
-#     def save(self):
-#         user = super().save(commit=False)
-#         user.is_customer = True
-#         user.save()
-#         restaurant = RestaurantProfile.objects.create(user=user)
-#         restaurant.address.add(*self.cleaned_data.get('address'))
