@@ -11,16 +11,20 @@
     <button>Login</button>
  </a>
 
- <a href="register">
-    <button>Create Account</button>
+ <a href="{% url 'EntryPage:customer-create-view' %}">
+    <button>Create Account Customer</button>
  </a>
+
+ <a href="{% url 'EntryPage:restaurant-create-view' %}">
+   <button>Create Account Restaurant</button>
+</a>
+
+ <a href="register">
+   <button>Create Account</button>
+</a>
 
  <a href="AboutUs">
    <button>About Us</button>
-</a>
-
-<a href="{% url 'Profiles:board_view' %}">
-   <button>Board</button>
 </a>
 
 <a href="{% url 'FileUpload:css-upload' %}">

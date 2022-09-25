@@ -1,8 +1,7 @@
 from django import forms
-from django.db import models
+from django.db import models,transaction
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from django.contrib.auth.models import User
-from Profiles.models import Profile
+from Profiles.models import CustomerProfile,RestaurantProfile,User
 from django.contrib.auth import authenticate
 
 
@@ -27,7 +26,7 @@ class UserForm(forms.ModelForm):
         cleaned_data = super(UserForm, self).clean()
         password = cleaned_data.get("password")
         password_confirmation = cleaned_data.get("password_confirmation")
-
+        username = cleaned_data.get("username")
         if password != password_confirmation:
             self.fields['password'].widget = forms.PasswordInput()
             self.fields['password_confirmation'].widget = forms.PasswordInput()
@@ -37,9 +36,43 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Password and Password confirmation do not match"
             )
+        elif User.objects.filter(username=username).exists():
+            self.fields['username'].widget = forms.TextInput()
+            self.add_error('username',"User Already Exists")
+            raise forms.ValidationError(
+                "This User Already Exists"
+            )
 
 
-class ProfileForm(forms.ModelForm):
+class CustomerProfileForm(forms.ModelForm):
     class Meta:
-        model=Profile
-        fields=[]
+        model=CustomerProfile
+        fields=('birth_date',)
+class RestaurantProfileForm(forms.ModelForm):
+    class Meta:
+        model=RestaurantProfile
+        fields=('address',)
+# class CustomerProfileForm(UserCreationForm):
+#     birth_date = forms.DateField()
+#     class Meta(UserCreationForm.Meta):
+#         model= User
+#     @transaction.atomic
+#     def save(self):
+#         user = super().save(commit=False)
+#         user.is_customer = True
+#         user.save()
+#         customer = CustomerProfile.objects.create(user=user)
+#         customer.birth_date.add(*self.cleaned_data.get('birth_date'))
+
+
+# class RestaurantProfileForm(UserCreationForm):
+#     address = forms.CharField(max_length=140)
+#     class Meta(UserCreationForm.Meta):
+#         model= User
+#     @transaction.atomic
+#     def save(self):
+#         user = super().save(commit=False)
+#         user.is_customer = True
+#         user.save()
+#         restaurant = RestaurantProfile.objects.create(user=user)
+#         restaurant.address.add(*self.cleaned_data.get('address'))

@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.decorators import permission_required
-from django.contrib.auth.models import User
-from .models import Profile
+from django.contrib.auth.models import AbstractUser
+from .models import CustomerProfile,RestaurantProfile,User
 from django.views.generic import UpdateView 
 # def board_profiles_view(request):
 #     return render(request,"Profiles/BoardProfiles.html",{})
@@ -12,12 +12,6 @@ def member_directory_view(request):
     return render(request,"Profiles/MemberDirectory.html")
 
 
-## Finish this after group stuff setup
-def board_profiles_view(request):
-    queryset = User.objects.all()
-    context = {"object_list":queryset}
-    return render(request,"Profiles/BoardProfiles.html",context)
-   
 
 
 def individual_profile_view(request,user):
