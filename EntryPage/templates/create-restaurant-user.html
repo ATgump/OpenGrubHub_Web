@@ -1,0 +1,12 @@
+{% block content %} 
+
+<!-- {% load crispy_forms_tags %}          -->
+
+{% load crispy_forms_tags %}
+<form class="user profile" method="post">{% csrf_token %}
+    {{ user_form|crispy }}
+	{{ profile_form|crispy }}
+    <input type="submit" value="Save">
+</form>
+
+{% endblock %}
