@@ -16,10 +16,10 @@ Including another URLconf
 
 from django.urls import path
 
-from .views import reservation_home_view
+from .views import MakeReservationView
 app_name = 'ReservationApp'
 urlpatterns = [
-    path("",reservation_home_view,name="home-view")
+    path("create/",MakeReservationView.as_view(),name="make-reservation-view")
     # path("board/",board_profiles_view,name="board_view"),
     # path("",member_directory_view,name="member_directory_view"),
     # path("<user>/",individual_profile_view,name="memberProfile"),

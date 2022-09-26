@@ -16,10 +16,11 @@ Including another URLconf
 
 from django.urls import path
 
-from .views import member_directory_view,individual_profile_view,UpdateProfile
+from .views import member_directory_view,customer_profile_view,UpdateProfile,restaurant_profile_view
 app_name = 'Profiles'
 urlpatterns = [
     path("",member_directory_view,name="member_directory_view"),
-    path("<user>/",individual_profile_view,name="memberProfile"),
+    path("customer/<int:id>",customer_profile_view,name="CustomerProfile"),
+    path("restaurant/<int:id>",restaurant_profile_view,name="RestaurantProfile"),
     path("<user>/edit",UpdateProfile.as_view(),name="edit_profile"),
 ]

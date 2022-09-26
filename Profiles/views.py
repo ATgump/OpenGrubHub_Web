@@ -14,13 +14,19 @@ def member_directory_view(request):
 
 
 
-def individual_profile_view(request,user):
-    obj = get_object_or_404(User,username=user)
+def customer_profile_view(request,id):
+    obj = get_object_or_404(User,id=id)
     context = {
         "obj":obj
     }
-    return render(request, "Profiles/UserProfile.html", context) ### directory in templates/htmldoc (or more directories presumably)
+    return render(request, "Profiles/CustomerProfile.html", context) ### directory in templates/htmldoc (or more directories presumably)
 
+def restaurant_profile_view(request,id):
+    obj = get_object_or_404(User,id=id)
+    context = {
+        "obj":obj
+    }
+    return render(request, "Profiles/RestaurantProfile.html", context) ### directory in templates/htmldoc (or more directories presumably)
 
 
 class UpdateProfile(UpdateView):

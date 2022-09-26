@@ -9,6 +9,21 @@ from address.models import AddressField
 
 class User(AbstractUser):
     is_customer = models.BooleanField(default=False)
+    def __str__(self):
+        if self.is_customer:
+            return self.username
+        else:
+            return self.username ## change this to restaurant name when this is setup
+    # def get_absolute_url(self):
+    #     print("called this")
+    #     if self.is_customer:
+    #         return reverse("Profiles:CustomerProfile", kwargs={"id":self.id}) #f"/user_profiles/{self.id}" ### do this to make sure links update
+    #     else:
+    #         print("called this2")
+    #         return reverse("Profiles:RestaurantProfile", kwargs={"id":self.id})
+    
+
+    ## add more roles if needed
     # USER_TYPE_CHOICES = (
     #     (1,"customer"),
     #     (2,"restaurant"),
@@ -25,6 +40,10 @@ class CustomerProfile(models.Model):
     #AUTH_PROFILE_MODULE='app.CustomerProfile'
     #Customer Fields
     birth_date = models.DateField(null=True,blank=True)
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("Profiles:CustomerProfile", kwargs={"id":self.user.id})
     # def __str__(self):
     #     return self.user.username
     # def get_absolute_url(self):
@@ -35,7 +54,13 @@ class RestaurantProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="restaurant_profile",null=True)
     #AUTH_PROFILE_MODULE='app.RestaurantProfile'
     ## Restaurant Specific Fields
+    def test(self):
+        print("this is a test")
     address = AddressField(null=True)
+    def get_absolute_url(self):
+        from django.urls import reverse
+        print("called this")
+        return reverse("Profiles:RestaurantProfile", kwargs={"id":self.user.id})
     # def __str__(self):
     #     return self.user.username
 
