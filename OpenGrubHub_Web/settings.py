@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'Profiles',
     'FileUpload',
     'ReservationApp',
+    'RestaurantFinder',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR,"Profiles","templates"),
             os.path.join(BASE_DIR,"FileUpload","templates"),
             os.path.join(BASE_DIR,"ReservationApp","templates"),
-        
+            os.path.join(BASE_DIR,"RestaurantFinder","templates")
         
         ],
         'APP_DIRS': True,
@@ -145,7 +146,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     BASE_DIR / "static",
-    BASE_DIR / "ReservationApp/static"
+    BASE_DIR / "ReservationApp/static",
+    BASE_DIR / "RestaurantFinder/static",
 
 ]
 

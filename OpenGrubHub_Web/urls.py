@@ -24,4 +24,5 @@ urlpatterns = [
     path("profiles/",include("Profiles.urls")),
     path("upload/",include("FileUpload.urls")),
     path("reservation/",include("ReservationApp.urls")),
+    path("restaurant-find/",include("RestaurantFinder.urls")),
 ]
