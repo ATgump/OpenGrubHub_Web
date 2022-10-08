@@ -1,10 +1,15 @@
 from django import forms
 from .models import ReservationModel
 
+
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = ReservationModel
-        fields = ('time', 'date', 'number_of_customers',)
+        fields = (
+            "time",
+            "date",
+            "number_of_customers",
+        )
 
     # def clean(self):
     #     cleaned_data = super(UserUpdateForm, self).clean()

@@ -1,113 +1,17 @@
-
-
-<!-- $.ajax({
-    type: "POST",
-    url: "{{ 'post-addr/' }}",
-    data: { csrfmiddlewaretoken: '{{ csrf_token }}', address: address }, 
-    dataType: "json", 
-    success: function callback(response){
-                /* do whatever with the response */
-                /*alert(response.test);*/
-                tags(response.address_list)
-                //console.log(response.address_list)
-                //return response.address_list
-            }
-}); -->
-
-
-
-<head> <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ API_KEY }}&libraries=places&callback=initAutocomplete" async defer></script>
-
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font: 16px Arial;  
-    }
-    
-    /*the container must be positioned relative:*/
-    .autocomplete {
-      position: relative;
-      display: inline-block;
-    }
-    
-    input {
-      border: 1px solid transparent;
-      background-color: #f1f1f1;
-      padding: 10px;
-      font-size: 16px;
-    }
-    
-    input[type=text] {
-      background-color: #f1f1f1;
-      width: 100%;
-    }
-    
-    input[type=submit] {
-      background-color: DodgerBlue;
-      color: #fff;
-      cursor: pointer;
-    }
-    
-    .autocomplete-items {
-      position: absolute;
-      border: 1px solid #d4d4d4;
-      border-bottom: none;
-      border-top: none;
-      z-index: 99;
-      /*position the autocomplete items to be the same width as the container:*/
-      top: 100%;
-      left: 0;
-      right: 0;
-    }
-    
-    .autocomplete-items div {
-      padding: 10px;
-      cursor: pointer;
-      background-color: #fff; 
-      border-bottom: 1px solid #d4d4d4; 
-    }
-    
-    /*when hovering an item:*/
-    .autocomplete-items div:hover {
-      background-color: #e9e9e9; 
-    }
-    
-    /*when navigating through the items using the arrow keys:*/
-    .autocomplete-active {
-      background-color: DodgerBlue !important; 
-      color: #ffffff; 
-    }
-    </style>
-
-
-</head>
-
-    <body>
-        <form autocomplete="off" class="restaurant profile" method="post">{% csrf_token %}
-            {{ user_form.as_div }}
-            {{ profile_form.as_div }}
-            <h1>{{ session_token }}</h1>
-            <input type="submit" value="Save">
-        </form>
-    <script>
         // This example displays an address form, using the autocomplete feature
         // of the Google Places API to help users fill in the information.
         var placeSearch, autocomplete;
-    
+        
     var initAutocomplete = function() {
           // Create the autocomplete object, restricting the search to geographical
           // location types.
+            //console.log(sessionToken)
           var location_input = document.getElementById('id_PF-address')
           var autocomplete = new google.maps.places.Autocomplete(
               /** @type {!HTMLInputElement} */location_input,
-              {types: ['geocode']});
-    
+              {types: ['geocode'],
+            },
+            );
           // When the user selects an address from the dropdown, populate the address
           // fields in the form.
           autocomplete.addListener('place_changed', fillInAddress);
@@ -190,6 +94,10 @@ function fillInAddress() {
 }
 
 window.initAutocomplete = initAutocomplete;
-    // [END region_geolocation]
-</script>
-</body>
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";  
+}
