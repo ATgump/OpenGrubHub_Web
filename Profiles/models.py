@@ -5,6 +5,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_google_maps import fields as map_fields
+from django.contrib.contenttypes.fields import GenericRelation
+from star_ratings.models import Rating
 
 ## Change this to extend the User model
 
@@ -63,6 +65,8 @@ class RestaurantProfile(models.Model):
     ## Restaurant Specific Fields
     address = map_fields.AddressField(max_length=200, null=True)
     geolocation = map_fields.GeoLocationField(max_length=100, null=True)
+    #ratings = models.JSONField(null=True)
+    ratings = GenericRelation(Rating, related_query_name='ratings')
     # address = AddressField(null=True)
     def get_absolute_url(self):
         from django.urls import reverse
