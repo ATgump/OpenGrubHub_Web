@@ -6,35 +6,57 @@
 # # admin.site.register(Profile)
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+
 # from django.contrib.auth.models import User
 
-from .models import CustomerProfile,RestaurantProfile,User
+from .models import CustomerProfile, RestaurantProfile, User
 
-
+# from django_google_maps import widgets as dgm_widgets
+# from django_google_maps import fields as dgm_fields
+import json
 
 
 # ### THis is to update what admin can see in the users
 class RestaurantProfileInline(admin.StackedInline):
     model = RestaurantProfile
     can_delete = False
-    verbose_name_plural = 'CustomerProfile'
-    fk_name = 'user'
+    verbose_name_plural = "RestaurantProfile"
+    fk_name = "user"
+    # formfield_overrides = {
+    #     dgm_fields.AddressField: {'widget':dgm_widgets.GoogleMapsAddressWidget(attrs=
+    #         {'data-autocomplete-options': json.dumps({'types':['geocode','establishment'],'componentRestrictions':{'country':'us'}})}
+    #     )},
+    # }
 
 
 # ### THis is to update what admin can see in the users
 class ProfileInline(admin.StackedInline):
     model = CustomerProfile
     can_delete = False
-    verbose_name_plural = 'CustomerProfile'
-    fk_name = 'user'
+    verbose_name_plural = "CustomerProfile"
+    fk_name = "user"
+
 
 class CustomUserAdmin(UserAdmin):
-    inlines = (ProfileInline, RestaurantProfileInline,)
-    list_display = ('username', 'email', 'first_name', 'last_name', 'get_birth_date','get_address','get_id')
-    list_select_related = ('customer_profile', )
-    #list_editable=('email',)
-    #actions=['authorize_selected',"role_change_exec"]
-
+    inlines = (
+        ProfileInline,
+        RestaurantProfileInline,
+    )
+    list_display = (
+        "username",
+        "email",
+        "first_name",
+        "last_name",
+        "get_birth_date",
+        "get_address",
+        "get_id",
+    )
+    list_select_related = (
+        "customer_profile",
+        "restaurant_profile",
+    )
+    # list_editable=('email',)
+    # actions=['authorize_selected',"role_change_exec"]
 
     # @admin.action(description="Authorize Member")
     # def authorize_selected(modeladmin,request,queryset):
@@ -53,12 +75,17 @@ class CustomUserAdmin(UserAdmin):
     #     #queryset.update(profile=2)
     def get_birth_date(self, instance):
         return instance.customer_profile.birth_date
-    get_birth_date.short_description = 'Birth Date'
+
+    get_birth_date.short_description = "Birth Date"
+
     def get_address(self, instance):
         return instance.restaurant_profile.address
-    get_address.short_description = 'address'
-    def get_id(self,instance):
+
+    get_address.short_description = "address"
+
+    def get_id(self, instance):
         return instance.id
+
     get_id.short_description = "id"
 
     # def get_role(self, instance):
@@ -70,5 +97,6 @@ class CustomUserAdmin(UserAdmin):
             return list()
         return super(CustomUserAdmin, self).get_inline_instances(request, obj)
 
-admin.site.register(User,CustomUserAdmin)
+
+admin.site.register(User, CustomUserAdmin)
 # admin.site.register(User, CustomUserAdmin)

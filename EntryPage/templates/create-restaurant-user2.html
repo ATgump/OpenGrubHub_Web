@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Restaurant Profile</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ API_KEY }}&libraries=places&callback=initAutocomplete" async defer></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'EntryPage/create-restaurant-user.css' %}">
+</head>
+<body>
+    <script type="text/javascript" src="{% static 'EntryPage/create-restaurant-user.js' %}"></script>
+    <button class="open-button" onclick="openForm()">Restaurant Account Creation</button>
+    <div class="form-popup" id="myForm">
+        <form autocomplete="off" class="restaurant profile" method="post">{% csrf_token %}
+            {{ user_form.as_div }}
+            {{ profile_form.as_div }}
+            <button type="submit" value="Save" class="btn save">Create Account</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>    
+</body>
+</html>
