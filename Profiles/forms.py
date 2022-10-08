@@ -28,3 +28,4 @@ class UserUpdateForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Password and Password confirmation do not match"
             )
+

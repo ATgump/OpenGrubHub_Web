@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_google_maps",
     "crispy_forms",
+    "star_ratings",
     ### MY APPS
     "EntryPage",
     "OpenGrubHub_Web",
@@ -86,7 +87,7 @@ TEMPLATES = [
         },
     },
 ]
-
+#STAR_RATINGS_RERATE = False
 WSGI_APPLICATION = "OpenGrubHub_Web.wsgi.application"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -142,6 +143,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "ReservationApp/static",
     BASE_DIR / "RestaurantFinder/static",
     BASE_DIR / "EntryPage/static",
+    BASE_DIR / "Profiles/static",
 ]
 
 # Default primary key field type

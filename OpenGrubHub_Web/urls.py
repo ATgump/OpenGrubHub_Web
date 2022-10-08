@@ -25,4 +25,5 @@ urlpatterns = [
     path("upload/", include("FileUpload.urls")),
     path("reservation/", include("ReservationApp.urls")),
     path("restaurant-find/", include("RestaurantFinder.urls")),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
