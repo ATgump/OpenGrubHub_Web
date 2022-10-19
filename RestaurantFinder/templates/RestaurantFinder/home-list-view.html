@@ -1,3 +1,65 @@
 {% for user in users %}
 <a href="{{ user.restaurant_profile.get_absolute_url }}">{{ user }}</a>
 {% endfor %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./favicon.png">
+
+    <title>Foodle</title>
+  </head>
+  
+  
+<body>
+
+    <div id="layout">
+    <!-- Menu toggle -->
+	<a href="#menu" id="menuLink" class="menu-link">
+	    <!-- Hamburger icon -->
+	    <span></span>
+	</a>
+          <div id="menu">
+	    <div class="pure-menu">
+              <span class="pure-menu-heading">
+		  <img src="logo.png" style="max-width:100%;max-height:100%;"></img>
+	      </span>
+	    </div>
+          </div>
+
+          <div id="main">
+            <div class="header"><h1>Select a search method</h1></div>
+	    <div class="content">
+	      <p>Foodle is an easy Single Page Application allowing fast access to information about restaurants in your region. To begin, please select
+	      a search option either by name or criteria</p>
+	      <div class="pure-g">
+		<div class="pure-u-1 pure-u-md-1-2">
+		  <a href="./searchByCriteria.html" class="pure-button pure-button-primary" style="margin: 2px; display:block; background: rgb(223, 117, 20);">Search by Criteria</a>
+		</div>
+		<div class="pure-u-1 pure-u-md-1-2">
+		  <a href="./searchByName.html" class="pure-button pure-button-primary" style="margin: 2px; display:block; background: rgb(28, 184, 65);">Search by Name</a>
+		</div>
+	      </div>
+	    </div>
+
+	    <div class="footer" style="margin: 8px; border-top: 1px solid #EEE;">
+	      <div class="legal pure-g">
+		<div class="pure-u-1 pure-u-md-1-2">
+		  <p class="legal-license">Foodle, by IS Team 8.</p>
+		</div>
+		<div class="pure-u-1 pure-u-md-1-2" style="text-align:right;">
+		  <p class="legal-license">Using Pure.CSS.</p>
+		</div>
+	      </div>
+	    </div>
+
+          </div>
+
+    </div>
+</html>
