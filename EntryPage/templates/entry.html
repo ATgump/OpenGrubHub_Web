@@ -19,11 +19,20 @@
    <button>Create Account Restaurant</button>
 </a>
 
- <a href="register">
-   <button>Create Account</button>
+
+ <a href="{% url 'EntryPage:hf-create-account' %}">
+   <button>Create Account HF</button>
 </a>
 
- <a href="AboutUs">
+<a href="{% url 'EntryPage:hf-entry-page' %}">
+   <button>EntryPage HF</button>
+</a>
+
+<a href="{% url 'EntryPage:hf-main-page' %}">
+   <button>MainPage HF</button>
+</a>
+
+ <a href="{% url 'EntryPage:about-us' %}">
    <button>About Us</button>
 </a>
 

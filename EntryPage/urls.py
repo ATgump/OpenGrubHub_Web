@@ -24,11 +24,19 @@ from .views import (
     UserLogoutView,
     RestaurantCreateView,
     get_location_post,
+    createAccountHFView,
+    entryPageHFView,
+    mainPageHFView,
+    aboutUsView,
 )
 
 app_name = "EntryPage"
 urlpatterns = [
     path("", user_entry_view, name="entry_view"),
+    path("aboutus/",aboutUsView,name="about-us"),
+    path("create-accntHF/",createAccountHFView,name="hf-create-account"),
+    path("entry-pageHF/",entryPageHFView,name="hf-entry-page"),
+    path("main-pageHF/",mainPageHFView,name="hf-main-page"),
     path("restaurant-register/post-addr/", get_location_post, name="get-location"),
     path("logout-redirect/", UserLogoutView.as_view(), name="logout"),
     path(

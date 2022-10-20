@@ -16,7 +16,14 @@ import json
 def username_exists(username):
     return User.objects.filter(username=username).exists()
 
-
+def aboutUsView(request):
+    return render(request,"AboutUs.html")
+def createAccountHFView(request):
+    return render(request, "creatAccount.html", {})
+def entryPageHFView(request):
+    return render(request, "entryPage.html", {})
+def mainPageHFView(request):
+    return render(request, "mainPage.html", {})
 class UserLoginView(LoginView):
     form_class = UserLoginForm
     template_name: str = "login.html"
