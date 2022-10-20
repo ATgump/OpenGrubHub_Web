@@ -11,8 +11,8 @@
     <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 </head>
 <body>
-<h1>Name = {{ obj.username }}</h1>
-<h2>Address = {{ obj.restaurant_profile.address }}</h2>
+<h1>Name = {{ obj.restaurant_profile.restaurant_name }}</h1>
+<h2>Address = {{ obj.restaurant_profile.restaurant_address }}</h2>
 {% load ratings %}
 {% ratings obj %}
 <a href="{% url 'ReservationApp:make-reservation-view' %}">Make a Reservation</a>

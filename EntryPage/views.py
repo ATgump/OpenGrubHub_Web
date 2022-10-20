@@ -53,19 +53,6 @@ class RestaurantCreateView(View):
     template_name: str = "create-restaurant-user2.html"
     success_url = reverse_lazy("authenticated_homepage")
     next_page = "authenticated_user_landing.html"
-    # def test():
-    #     return "7"
-    # def get_autocomplete_suggestions(location,session_token):
-    #     url = f"https://maps.googleapis.com/maps/api/place/autocomplete/json?"
-    #     payload={
-    #         'key':settings.GOOGLE_MAPS_API_KEY,
-    #         'location':location
-    #     }
-    #     headers = {}
-    #     s = requests.Session()
-    #     #response = requests
-    #     response = requests.Request("GET", url, headers=headers, data=payload)
-    #     print(response.url)
     def get(self, request):
         user_form = self.user_form_class(prefix="UF")
         profile_form = self.profile_form_class(prefix="PF")
@@ -89,14 +76,14 @@ class RestaurantCreateView(View):
             ## SAVE BASE USER FORM AND SET HASHED PASSWORD
             user = user_form.save(commit=False)
             user.is_customer = False
-            username = user_form.cleaned_data["username"]
+            email = user_form.cleaned_data["email"]
             password = user_form.cleaned_data["password"]
             user.set_password(password)
             user.save()
             ## ADD PROFILE FIELDS AND THEN SAVE PROFILE (see if can use the form_save)
-            user.restaurant_profile.address = profile_form.cleaned_data.get("address")
+            user.restaurant_profile.restaurant_address = profile_form.cleaned_data.get("restaurant_address")
             user.restaurant_profile.save()
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             if user is not None:
                 if user.is_active:
                     login(request, user)
@@ -133,16 +120,16 @@ class CustomerCreateView(View):
             ## SAVE BASE USER FORM AND SET HASHED PASSWORD
             user = user_form.save(commit=False)
             user.is_customer = True
-            username = user_form.cleaned_data["username"]
+            email = user_form.cleaned_data["email"]
             password = user_form.cleaned_data["password"]
             user.set_password(password)
             user.save()
             ## ADD PROFILE FIELDS AND THEN SAVE PROFILE (see if can use the form_save)
-            user.customer_profile.birth_date = profile_form.cleaned_data.get(
-                "birth_date"
+            user.customer_profile.date_of_birth = profile_form.cleaned_data.get(
+                "date_of_birth"
             )
             user.customer_profile.save()
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             if user is not None:
                 print("not none")
                 if user.is_active:
