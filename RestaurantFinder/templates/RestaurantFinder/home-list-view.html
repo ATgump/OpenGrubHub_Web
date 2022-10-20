@@ -15,9 +15,6 @@
   
   
 <body>
-    {% for user in users %}
-    <a href="{{ user.restaurant_profile.get_absolute_url }}">{{ user }}</a>
-    {% endfor %}
 
     <div id="layout">
     <!-- Menu toggle -->
@@ -61,5 +58,9 @@
 
           </div>
 
+		{% for user in users %}
+		<a href="{{ user.restaurant_profile.get_absolute_url }}">{{ user }}</a>
+		{% endfor %}
     </div>
+
 </html>
