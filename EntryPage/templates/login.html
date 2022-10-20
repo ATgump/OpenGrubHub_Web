@@ -1,35 +1,74 @@
-{% block content %}
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+<head>
+<meta content="zh-cn" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 2</title>
+<style type="text/css">
+.auto-style1 {
+	text-align: center;
+	font-size: xx-large;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.auto-style2 {
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+<!--
+function FP_swapImg() {//v1.0
+ var doc=document,args=arguments,elm,n; doc.$imgSwaps=new Array(); for(n=2; n<args.length;
+ n+=2) { elm=FP_getObjectByID(args[n]); if(elm) { doc.$imgSwaps[doc.$imgSwaps.length]=elm;
+ elm.$src=elm.src; elm.src=args[n+1]; } }
+}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
+function FP_preloadImgs() {//v1.0
+ var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
+ for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
+}
 
-<form method="post" action="{% url 'EntryPage:login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
+function FP_getObjectByID(id,o) {//v1.0
+ var c,el,els,f,m,n; if(!o)o=document; if(o.getElementById) el=o.getElementById(id);
+ else if(o.layers) c=o.layers; else if(o.all) el=o.all[id]; if(el) return el;
+ if(o.id==id || o.name==id) return o; if(o.childNodes) c=o.childNodes; if(c)
+ for(n=0; n<c.length; n++) { el=FP_getObjectByID(id,c[n]); if(el) return el; }
+ f=o.forms; if(f) for(n=0; n<f.length; n++) { els=f[n].elements;
+ for(m=0; m<els.length; m++){ el=FP_getObjectByID(id,els[n]); if(el) return el; } }
+ return null;
+}
+// -->
+</script>
+</head>
 
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
+<body onload="FP_preloadImgs(/*url*/'buttonD.jpg')">
+
+<p class="auto-style1">Log in</p>
+<form method="post">
+	<div class="auto-style2">
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<a href="mainPage.html">
+		<img id="img1" alt="OK" height="20" onmousedown="FP_swapImg(1,0,/*id*/'img1',/*url*/'buttonE.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img1',/*url*/'buttonC.jpg')" onmouseover="FP_swapImg(1,0,/*id*/'img1',/*url*/'buttonD.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img1',/*url*/'buttonD.jpg')" src="buttonC.jpg" style="border: 0" width="100" /><!-- MSComment="ibutton" fp-style="fp-btn: Border Bottom 2" fp-title="OK" --></a><br />
+		<br />
+		<br />
+		<a href="creatAccount.html">Create Account</a>|<a href="entryPage.html">Back</a><br />
+	</div>
 </form>
+<p class="auto-style2">&nbsp;</p>
+<p class="auto-style2">&nbsp;</p>
+<p class="auto-style2">&nbsp;</p>
+<p class="auto-style2">&nbsp;</p>
+<p class="auto-style2">&nbsp;</p>
+<p class="auto-style2">&nbsp;</p>
+<p class="auto-style2"><a href="aboutUs.html">About us</a></p>
 
+</body>
 
-
-{% endblock %}
+</html>
