@@ -1,9 +1,17 @@
 
-<h1>
-    Things I Want here:
-    1. Projects Page link
-    2. Members List Link
-    3. Discord link <a href="discord.gg/htzewq">Discord</a></link>
-    {{ user.id }}
-    <p><a href="{% url 'EntryPage:logout' %}">Log Out</a></p>
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AfterLogin</title>
+</head>
+<body>
+
+<h1>{{ user.username }}!  Welcome back! </h1>
+
+<p>
+    <a href="{% url 'EntryPage:logout' %}">Log out</a>
+</p>
+
+</body>
+</html>

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "FileUpload",
     "ReservationApp",
     "RestaurantFinder",
+    "Community",
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, "FileUpload", "templates"),
             os.path.join(BASE_DIR, "ReservationApp", "templates"),
             os.path.join(BASE_DIR, "RestaurantFinder", "templates"),
+            os.path.join(BASE_DIR, "Community","templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -144,6 +146,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "RestaurantFinder/static",
     BASE_DIR / "EntryPage/static",
     BASE_DIR / "Profiles/static",
+    BASE_DIR / "Community/static",
 ]
 
 # Default primary key field type
