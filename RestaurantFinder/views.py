@@ -5,7 +5,7 @@ from Profiles.models import User
 
 
 def home_list_view(request):
-    users = User.objects.filter(is_customer=False)
+    users = User.objects.filter(is_customer=False,is_superuser=False)
     context = {"users": users}
     return render(request, "RestaurantFinder/home-list-view.html", context)
 

@@ -34,10 +34,6 @@ class UpdateProfile(UpdateView):
     fields = [
         "first_name",
         "last_name",
-        "image",
-        "url",
-        "biography",
-        "...",
     ]  # Keep listing whatever fields
     # the combined UserProfile and User exposes.
     template_name = "Profiles/update_profile.html"

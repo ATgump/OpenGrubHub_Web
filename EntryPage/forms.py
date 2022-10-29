@@ -38,21 +38,18 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
-            "username",
+            "email",
+            "first_name",
+            "last_name",
             "password",
             "password_confirmation",
         )
-        widgets = {
-            "username": forms.TextInput(attrs={"class": "autocomplete-items2"})
-            # 'password':forms.PasswordInput(attrs={"class":"input-field"}),
-            # 'password_confirmation':forms.PasswordInput(attrs={"class":"input-field"})
-        }
 
     def clean(self):
         cleaned_data = super(UserForm, self).clean()
         password = cleaned_data.get("password")
         password_confirmation = cleaned_data.get("password_confirmation")
-        username = cleaned_data.get("username")
+        email = cleaned_data.get("email")
         if password != password_confirmation:
             self.fields["password"].widget = forms.PasswordInput(
                 attrs={"class": "autocomplete-items2"}
@@ -66,8 +63,8 @@ class UserForm(forms.ModelForm):
             raise forms.ValidationError(
                 "Password and Password confirmation do not match"
             )
-        elif User.objects.filter(username=username).exists():
-            self.fields["username"].widget = forms.TextInput()
+        elif User.objects.filter(email=email).exists():
+            self.fields["email"].widget = forms.TextInput()
             self.add_error("username", "User Already Exists")
             raise forms.ValidationError("This User Already Exists")
 
@@ -75,33 +72,17 @@ class UserForm(forms.ModelForm):
 class CustomerProfileForm(forms.ModelForm):
     class Meta:
         model = CustomerProfile
-        fields = ("birth_date",)
+        fields = ("date_of_birth",)
 
 
 class RestaurantProfileForm(forms.ModelForm):
     class Meta:
         model = RestaurantProfile
-        fields = ("address",)  #'geolocation',)
+        fields = ("restaurant_address","restaurant_name",)  #'geolocation',)
         widgets = {
-            "address": forms.TextInput(
+            "restaurant_address": forms.TextInput(
                 attrs={"class": "autocomplete-items2"}
-            ),  # attrs={'onkeyup':'test()'}
-            # 'address':map_widgets.GoogleMapsAddressWidget(attrs=
-            # {'data-autocomplete-options': json.dumps({'types':['geocode','establishment'],'componentRestrictions':{'country':'us'}})}
-            # ),
-            #'geolocation':forms.HiddenInput(),
+            ),
+            "first_name":forms.HiddenInput(),  
+            "last_name":forms.HiddenInput(),
         }
-
-    # def test():
-    #     "<h1> THis is a test of test </h1>"
-    # def get_autocomplete_suggestions(location,session_token):
-    #     url = f"https://maps.googleapis.com/maps/api/place/autocomplete/json?"
-    #     payload={
-    #         'key':settings.GOOGLE_MAPS_API_KEY,
-    #         'location':location
-    #     }
-    #     headers = {}
-    #     s = requests.Session()
-    #     #response = requests
-    #     response = requests.Request("GET", url, headers=headers, data=payload)
-    #     print(response.url)

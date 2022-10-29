@@ -6,7 +6,7 @@
           // Create the autocomplete object, restricting the search to geographical
           // location types.
             //console.log(sessionToken)
-          var location_input = document.getElementById('id_PF-address')
+          var location_input = document.getElementById('id_PF-restaurant_address')
           var autocomplete = new google.maps.places.Autocomplete(
               /** @type {!HTMLInputElement} */location_input,
               {types: ['geocode'],
@@ -85,7 +85,7 @@ function fillInAddress() {
         break;
     }
   }
-  document.getElementById("id_PF-address").value = address1;
+  document.getElementById("id_PF-restaurant_address").value = address1;
   //postalField.value = postcode;
   // After filling the form with address components from the Autocomplete
   // prediction, set cursor focus on the second address line to encourage

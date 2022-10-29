@@ -7,8 +7,6 @@ from django.http import HttpResponseRedirect, HttpResponseBadRequest
 # Create your views here.
 def cssUploadView(request):
     if request.method == "POST":
-        # print(request.POST)
-        # print(request.FILES)
         # print(request.user) ### CAN USE THIS TO STORE IMAGES UNDER RIGHT FOLDER
         form = CssCreateForm(request.POST, request.FILES)
 
