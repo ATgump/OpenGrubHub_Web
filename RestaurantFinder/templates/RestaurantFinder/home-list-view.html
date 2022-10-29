@@ -1,3 +1,3 @@
 {% for user in users %}
-<a href="{{ user.restaurant_profile.get_absolute_url }}">{{ user.email }}</a>
+<a href="{{ user.restaurant_profile.get_absolute_url }}">{{ user.restaurant_profile.restaurant_name }}</a>
 {% endfor %}

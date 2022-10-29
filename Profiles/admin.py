@@ -50,6 +50,7 @@ class CustomUserAdmin(UserAdmin):
         "get_birth_date",
         "get_address",
         "get_id",
+        "get_restaurant_name",
         "get_customer_status",
     )
     list_select_related = (
@@ -76,9 +77,12 @@ class CustomUserAdmin(UserAdmin):
     #     #queryset.update(profile=2)
     def get_birth_date(self, instance):
         return instance.customer_profile.date_of_birth
-
+    
     get_birth_date.short_description = "Birth Date"
 
+    def get_restaurant_name(self, instance):
+        return instance.restaurant_profile.restaurant_name
+    get_restaurant_name.short_description = "Restaurant Name"
     def get_address(self, instance):
         return instance.restaurant_profile.restaurant_address
 

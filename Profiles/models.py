@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
 
     use_in_migrations = True
-
+ 
     def _create_user(self, email, password, **extra_fields):
         """Create and save a User with the given email and password."""
         if not email:
@@ -84,7 +84,7 @@ class RestaurantProfile(models.Model):
     restaurant_address = map_fields.AddressField(max_length=200, null=True)
     geolocation = map_fields.GeoLocationField(max_length=100, null=True)
     ratings = GenericRelation(Rating, related_query_name='ratings')
-    restaurant_name = models.CharField(_('restuarant name'), max_length=60, blank=True)
+    restaurant_name = models.CharField(_('restuarant name'), max_length=60, null=True)
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse("Profiles:RestaurantProfile", kwargs={"id": self.user.id})

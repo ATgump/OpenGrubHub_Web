@@ -44,11 +44,6 @@ class UserForm(forms.ModelForm):
             "password",
             "password_confirmation",
         )
-        widgets = {
-            #"username": forms.TextInput(attrs={"class": "autocomplete-items2"})
-            # 'password':forms.PasswordInput(attrs={"class":"input-field"}),
-            # 'password_confirmation':forms.PasswordInput(attrs={"class":"input-field"})
-        }
 
     def clean(self):
         cleaned_data = super(UserForm, self).clean()
@@ -83,17 +78,11 @@ class CustomerProfileForm(forms.ModelForm):
 class RestaurantProfileForm(forms.ModelForm):
     class Meta:
         model = RestaurantProfile
-        fields = ("restaurant_address","restaurant_name")  #'geolocation',)
+        fields = ("restaurant_address","restaurant_name",)  #'geolocation',)
         widgets = {
             "restaurant_address": forms.TextInput(
                 attrs={"class": "autocomplete-items2"}
             ),
             "first_name":forms.HiddenInput(),  
             "last_name":forms.HiddenInput(),
-            
-            # attrs={'onkeyup':'test()'}
-            # 'address':map_widgets.GoogleMapsAddressWidget(attrs=
-            # {'data-autocomplete-options': json.dumps({'types':['geocode','establishment'],'componentRestrictions':{'country':'us'}})}
-            # ),
-            #'geolocation':forms.HiddenInput(),
         }
