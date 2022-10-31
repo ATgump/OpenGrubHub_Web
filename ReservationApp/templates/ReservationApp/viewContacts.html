@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>View Contacts</title>
+<link rel="stylesheet" type="text/css" href="reservations.css">
+</head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+
+tr:nth-child(even){background-color:#f2f2f2}
+
+th {
+    background-color: #9BA4D1;
+    color: white;
+}
+</style>
+<body>
+<div class="container">
+  <div class="header"><a href="#"><img src="restaurant.jpg" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
+    RESTAURANT RESERVATIONS
+    <!-- end .header --></div>
+  <div class="content">
+  <br />
+  
+  <table width="100%" border="0" cellspacing="2px" cellpadding="5px">
+  	  <thead>
+          <tr>
+            <th width="25%">First Name</th>
+            <th width="25%">Last Name</th>
+            <th width="25%">Email</th>
+            <th width="25%">Phone</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>Add Reserve</td>
+            <td>Last</td>
+            <td>addreserve.last@gmail.com</td>
+            <td>098-123-5678</td>
+          </tr>
+          <tr>
+            <td>Fist</td>
+            <td>Last</td>
+            <td>first.last@gmail.com</td>
+            <td>122-333-4456</td>
+          </tr>
+          <tr>
+            <td>Hello</td>
+            <td>Person</td>
+            <td>first.last@gmail.com</td>
+            <td>234-890-7651</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Last</td>
+            <td>name.last@gmail.com</td>
+            <td>123-456-7890</td>
+          </tr>
+          <tr>
+            <td>Testing</td>
+            <td>Name</td>
+            <td>testing.name@gmail.com</td>
+            <td>112-334-5567</td>
+          </tr>
+      </tbody>    
+</table>
+  <!-- end .content --></div>
+    <div class="footer">
+    <p>Footer</p>
+  <!-- end .footer --></div>
+
+  <!-- end .container --></div>
+</body>
+<script type="text/javascript">
+function getReservationDetails(){
+	var dir = getFilePath();
+	window.location.href = dir + "/view-reservations-details.html";
+}
+
+
+function getFilePath(){
+	var loc = window.location.pathname;
+	var dir = loc.substring(0, loc.lastIndexOf('/'));
+	
+	return dir;
+}
+</script>
+</html>
