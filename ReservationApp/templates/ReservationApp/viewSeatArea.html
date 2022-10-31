@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>View Seat Area</title>
+<link rel="stylesheet" type="text/css" href="reservations.css">
+</head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+}
+
+
+tr:nth-child(even){background-color:#f2f2f2}
+
+th {
+    background-color: #9BA4D1;
+    color: white;
+}
+</style>
+<body>
+<div class="container">
+  <div class="header"><a href="#"><img src="restaurant.jpg" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
+    RESTAURANT RESERVATIONS
+    <!-- end .header --></div>
+  <div class="content">
+  <br />
+  
+  <table width="100%" border="0" cellspacing="2px" cellpadding="5px">
+  	  <thead>
+          <tr>
+            <th width="20%">Seat Number</th>
+            <th width="20%"># of Seats</th>
+            <th width="20%">Date</th>
+            <th width="20%">Time</th>
+            <th width="20%">Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>Seat 1</td>
+            <td>2</td>
+            <td>2012-12-29</td>
+            <td>5:00 PM</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Seat 1</td>
+            <td>2</td>
+            <td>2012-12-29</td>
+            <td>5:15 PM</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>Seat 1</td>
+            <td>2</td>
+            <td>2012-12-29</td>
+            <td>5:30 PM</td>
+            <td>Available</td>
+          </tr>
+
+          <tr>
+            <td>Seat 1</td>
+            <td>2</td>
+            <td>2012-12-29</td>
+            <td>5:40 PM</td>
+            <td>Available</td>
+          </tr>
+
+          <tr>
+            <td>Seat 1</td>
+            <td>2</td>
+            <td>2012-12-29</td>
+            <td>6:00 PM</td>
+            <td>Available</td>
+          </tr>
+
+      </tbody>    
+</table>
+  <!-- end .content --></div>
+    <div class="footer">
+    <p>Footer</p>
+  <!-- end .footer --></div>
+
+  <!-- end .container --></div>
+</body>
+<script type="text/javascript">
+function getReservationDetails(){
+	var dir = getFilePath();
+	window.location.href = dir + "/view-reservations-details.html";
+}
+
+
+function getFilePath(){
+	var loc = window.location.pathname;
+	var dir = loc.substring(0, loc.lastIndexOf('/'));
+	
+	return dir;
+}
+</script>
+</html>
