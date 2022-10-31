@@ -50,4 +50,21 @@
    <button>Restaurant List</button>
 </a>
 
+
+
+<a href="{% url 'ReservationApp:reservation-detail' %}">
+   <button>Reservation Detail</button>
+</a>
+<a href="{% url 'ReservationApp:reservation-list' %}">
+   <button>Reservation List</button>
+</a>
+<a href="{% url 'ReservationApp:seat-list' %}">
+   <button>Reservation Seat list</button>
+</a>
+
+
+<!-- 
+path("details/", viewReservationDetail, name="reservation-detail"),
+path("list/", viewReservations, name="reservation-list"),
+path("seats/", viewSeatArea, name="seat-list"), -->
 {% endblock %}
