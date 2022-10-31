@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django_google_maps",
     "crispy_forms",
     "star_ratings",
+    "coverage",
     ### MY APPS
     "EntryPage",
     "OpenGrubHub_Web",
