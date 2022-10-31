@@ -1,4 +1,74 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Make a Reservation</title>
+<link rel="stylesheet" type="text/css" href="reservations.css">
+</head>
+<body>
+<div class="container">
+  <div class="header"><a href="#"><img src="restaurant.jpg" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
+    RESTAURANT RESERVATIONS
+    <!-- end .header --></div>
+  <div class="content">
+  	<table width="100%" border="0" cellspacing="10px" cellpadding="10px">
+      <tr>
+        <td>Restaurant Name</td>
+        <td><input name="restName" type="text" size="30" maxlength="20" value="Restaurant Name"/></td>
+      </tr>
+      <tr>
+        <td>Contact Email</td>
+        <td><input name="resEmail" type="text" size="30" maxlength="30" value="rest@gmail.com"/></td>
+      </tr>
+      <tr>
+        <td>Contact Phone</td>
+        <td><input name="resPhone" type="text" size="30" maxlength="10" value="123-456-1234"/></td>
+      </tr>
+      <tr>
+        <td>Reservation Start Time</td>
+        <td>
+        	<select name="tableSize">
+                <option value="5" selected="selected">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+        	</select>
+        </td>
+      </tr>
+      <tr>
+        <td>Reservation End Time</td>
+        <td>
+        	<select name="tableSize">
+                <option value="5" selected="selected">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+        	</select>
+        </td>
+      </tr>
+    </table>
+    <div class="divLeftPadding">
+    	<input name="submit" type="button" value="Submit" class="myButton" onClick="saveReservation();"/>
+    </div>
+    <div id="successMessage" class="alert-box success" style="display:none;"><span>success: </span>Restaurant Details modified Successfully.</div>
+    <br />
+  <!-- end .content --></div>
+    <div class="footer">
+    <p>Footer</p>
+  <!-- end .footer --></div>
+
+  <!-- end .container --></div>
+</body>
+<script type="text/javascript">
+function saveReservation(){
+		document.getElementById("successMessage").style.display="block";
+}
+</script>
+</html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
