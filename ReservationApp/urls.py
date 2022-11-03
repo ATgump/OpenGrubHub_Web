@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.urls import path
 
-from .views import MakeReservationView,viewReservationDetail,viewReservations,viewSeatArea
+from .views import MakeReservationView,viewReservationDetail,viewReservations,viewSeatArea,viewContacts
 
 app_name = "ReservationApp"
 urlpatterns = [
@@ -24,6 +24,7 @@ urlpatterns = [
     path("details/", viewReservationDetail, name="reservation-detail"),
     path("list/", viewReservations, name="reservation-list"),
     path("seats/", viewSeatArea, name="seat-list"),
+    path("contacts/", viewContacts, name="contacts"),
     # path("board/",board_profiles_view,name="board_view"),
     # path("",member_directory_view,name="member_directory_view"),
     # path("<user>/",individual_profile_view,name="memberProfile"),

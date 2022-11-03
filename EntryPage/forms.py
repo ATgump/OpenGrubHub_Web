@@ -65,7 +65,7 @@ class UserForm(forms.ModelForm):
             )
         elif User.objects.filter(email=email).exists():
             self.fields["email"].widget = forms.TextInput()
-            self.add_error("username", "User Already Exists")
+            self.add_error("email", "User Already Exists")
             raise forms.ValidationError("This User Already Exists")
 
 

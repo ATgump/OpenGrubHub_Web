@@ -17,10 +17,10 @@ Including another URLconf
 from django.urls import path
 
 from .views import (
-    community_home_view
+    CommentCreateView
 )
 
 app_name = "Community"
 urlpatterns = [
-    path("", community_home_view, name="community-home"),
+    path("", CommentCreateView.as_view(), name="community-home"),
 ]

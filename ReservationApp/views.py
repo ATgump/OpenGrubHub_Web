@@ -10,7 +10,6 @@ from .forms import ReservationForm
 
 class MakeReservationView(FormView):
     from django.urls import reverse_lazy
-
     template_name: str = "ReservationApp/make-reservation.html"
     form_class = ReservationForm
     success_url = reverse_lazy("RestaurantFinder:home-list-view")
@@ -21,3 +20,5 @@ def viewSeatArea(request):
     return render(request,"ReservationApp/viewSeatArea.html",{})
 def viewReservationDetail(request):
     return render(request,"ReservationApp/viewReservationDetail.html",{})
+def viewContacts(request):
+    return render(request,"ReservationApp/viewContacts.html",{})

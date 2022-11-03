@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "star_ratings",
     "coverage",
+    "phonenumber_field",
     ### MY APPS
     "EntryPage",
     "OpenGrubHub_Web",

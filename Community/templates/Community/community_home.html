@@ -16,7 +16,18 @@
 
 </body>
 
-<form action="/" method="post">
+
+
+<div class="form-popup" id="myForm">
+  <form autocomplete="off" class="comment" method="post">{% csrf_token %}
+    <h2>Comment</h2>
+      {{ comment_form.as_div }}
+      <fieldset> 
+      </fieldset>
+      <button type="submit">Submit</button>
+  </form>
+</div>
+<!-- <form action="/" method="post">
     <h2>Comment</h2>
     
       <fieldset>
@@ -30,4 +41,4 @@
     
       <button type="submit">Submit</button>
     
-    </form>
+    </form> -->

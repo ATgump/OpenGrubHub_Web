@@ -1,27 +1,37 @@
 from django import forms
 from .models import ReservationModel
 
+TIME_CHOICES = [
+                ("5:00 PM","5:00 PM"),
+                ("5:15 PM","5:15 PM"),
+                ("5:30 PM","5:30 PM"),
+                ("5:45 PM","5:45 PM"),
+                ("6:00 PM","6:00 PM"),
+                ("6:15 PM","6:15 PM"),
+                ("6:30 PM","6:30 PM"),
+                ("6:45 PM","6:45 PM"),
+                ("7:00 PM","7:00 PM"),
+                ("7:15 PM","7:15 PM"),
+                ("7:30 PM","7:30 PM"),
+                ("7:45 PM","7:45 PM"),
+                ("8:00 PM","8:00 PM"),
+                ("8:15 PM","8:15 PM"),
+                ("8:30 PM","8:30 PM"),
+                ("8:45 PM","8:45 PM"),
+                ("9:00 PM","9:00 PM"),
+]
+
 
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = ReservationModel
         fields = (
+            "first_name",
+            "last_name",
+            "email",
             "time",
             "date",
-            "number_of_customers",
+            "table_size",
+            "phone_number",
+            "high_seat",
         )
-
-    # def clean(self):
-    #     cleaned_data = super(UserUpdateForm, self).clean()
-    #     password = cleaned_data.get("password")
-    #     password_confirmation = cleaned_data.get("password_confirmation")
-
-    #     if password != password_confirmation:
-    #         self.fields['password'].widget = forms.PasswordInput()
-    #         self.fields['password_confirmation'].widget = forms.PasswordInput()
-
-    #         self.add_error('password', "Must match with Password confirmation")
-    #         self.add_error('password_confirmation', "Must match with Password")
-    #         raise forms.ValidationError(
-    #             "Password and Password confirmation do not match"
-    #         )
