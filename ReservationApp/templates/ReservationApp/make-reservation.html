@@ -1,6 +1,23 @@
-<div class="form-popup" id="myForm">
-  <form autocomplete="off" class="restaurant profile" method="post">{% csrf_token %}
-      {{ reservation_form.as_div }}
-      <button type="submit" value="Save" class="btn save">Create Account</button>
-  </form>
-</div>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="reservations.css">
+  <title>Make a Reservation</title>
+</head>
+<body>
+  <div class="header"><a href="#"><img src="restaurant.jpg" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
+    RESTAURANT RESERVATIONS
+  </div>
+  <div class="form-popup" id="myForm">
+    <form autocomplete="off" class="restaurant profile" method="post">{% csrf_token %}
+      <table width="100%" border="0" cellspacing="10px" cellpadding="10px">
+        {{ reservation_form }}
+        </table>
+        <button type="submit" value="Save" class="btn save">Create Account</button>
+    </form>
+  </div>  
+</body>
+</html>
