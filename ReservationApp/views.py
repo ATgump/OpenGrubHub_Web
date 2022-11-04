@@ -11,8 +11,29 @@ from .forms import ReservationForm
 class MakeReservationView(FormView):
     from django.urls import reverse_lazy
     template_name: str = "ReservationApp/make-reservation.html"
-    form_class = ReservationForm
+    reservation_form_class = ReservationForm
     success_url = reverse_lazy("RestaurantFinder:home-list-view")
+    def get(self, request):
+        reservation_form=self.reservation_form_class()
+        return render(
+            request,
+            self.template_name,
+            {"reservation_form": reservation_form},
+        )
+    def post(self, request):
+        reservation_form = self.reservation_form_class(request.POST or None)
+        if reservation_form.is_valid():
+            reservation = reservation_form.save(commit=False)
+            ### ADD A RESTAURANT HERE BASED ON THE REQUEST
+           
+            reservation.save()
+        return render(
+            request,
+            self.template_name,
+            {"reservation_form":reservation_form,},
+        )
+
+
 
 def viewReservations(request):
     return render(request,"ReservationApp/viewReservations.html",{})

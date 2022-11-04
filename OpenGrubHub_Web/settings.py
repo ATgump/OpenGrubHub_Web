@@ -35,6 +35,8 @@ LOGIN_URL = "/login"
 # Application definition
 # FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 INSTALLED_APPS = [
+    "admin_interface",
+    "colorfield",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "star_ratings",
     "coverage",
     "phonenumber_field",
+    "phonenumbers",
     ### MY APPS
     "EntryPage",
     "OpenGrubHub_Web",
@@ -56,6 +59,8 @@ INSTALLED_APPS = [
     "Community",
 ]
 
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",

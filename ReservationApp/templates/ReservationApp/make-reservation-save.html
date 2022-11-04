@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Make a Reservation</title>
+<link rel="stylesheet" type="text/css" href="reservations.css">
+</head>
+<body>
+<div class="container">
+  <div class="header"><a href="#"><img src="restaurant.jpg" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
+    RESTAURANT RESERVATIONS
+    <!-- end .header --></div>
+  <div class="content">
+  	<table width="100%" border="0" cellspacing="10px" cellpadding="10px">
+      <tr>
+        <td>Date</td>
+        <td><input name="date" type="date" size="11" maxlength="11" /></td>
+      </tr>
+      <tr>
+        <td>Time</td>
+        <td>
+        	<select name="time">
+            	<option value="5:00 PM" selected="selected">5:00 PM</option>
+                <option value="5:15 PM">5:15 PM</option>
+                <option value="5:30 PM">5:30 PM</option>
+                <option value="5:45 PM">5:45 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="6:15 PM">6:15 PM</option>
+                <option value="6:30 PM">6:30 PM</option>
+                <option value="6:45 PM">6:45 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="7:15 PM">7:15 PM</option>
+                <option value="7:30 PM">7:30 PM</option>
+                <option value="7:45 PM">7:45 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+                <option value="8:15 PM">8:15 PM</option>
+                <option value="8:30 PM">8:30 PM</option>
+                <option value="8:45 PM">8:45 PM</option>
+                <option value="9:00 PM">9:00 PM</option>
+        	</select>
+        </td>
+      </tr>
+      <tr>
+        <td>Table Size</td>
+        <td>
+        	<select name="tableSize">
+            	<option value="2" selected="selected">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+        	</select>
+        </td>
+      </tr>
+      <tr>
+        <td>With High Seat for Baby</td>
+        <td><input name="babySeat" type="checkbox" value="0"></td>
+      </tr>
+      <tr>
+        <td>First Name</td>
+        <td><input name="fname" type="text" size="30" maxlength="20" /></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td><input name="lname" type="text" size="30" maxlength="20" /></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input name="email" type="text" size="30" maxlength="30" /></td>
+      </tr>
+      <tr>
+        <td>Phone Number</td>
+        <td><input name="phonenum" type="text" size="30" maxlength="10" /></td>
+      </tr>
+    </table>
+    <div class="divLeftPadding">
+    	<input name="submit" type="button" value="Submit" class="myButton" onClick="saveReservation();"/>
+    </div>
+    <div id="successMessage" class="alert-box success" style="display:none;"><span>success: </span>Reservations made successfully. Note down the reservation Number as 12345621.</div>
+    <br />
+  <!-- end .content --></div>
+    <div class="footer">
+    <p>Footer</p>
+  <!-- end .footer --></div>
+
+  <!-- end .container --></div>
+</body>
+<script type="text/javascript">
+function saveReservation(){
+		document.getElementById("successMessage").style.display="block";
+}
+</script>
+</html>

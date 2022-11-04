@@ -10,6 +10,6 @@ class PermissionList(models.Model):
 
 class RoleList(models.Model):
     name = models.CharField(max_length=64)
-    permission = models.ManyToManyField(PermissionList, null=True, blank=True)
+    permission = models.ManyToManyField(PermissionList, blank=True)
     def __unicode__(self):
         return self.name
