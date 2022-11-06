@@ -1,0 +1,4 @@
+{% for comment in comment_query_set %}
+<h>User = {{ comment.user }}</h>
+<h>Comment = {{ comment.comment }}</h> 
+{% endfor %}

@@ -7,8 +7,8 @@ from Profiles.models import User
 def home_list_view(request):
     users = User.objects.filter(is_customer=False,is_superuser=False)
     # print(users.objects)
-    users= User.objects.all()
-    print(users)
+    # users= User.objects.all()
+    # print(users)
     for user in users:
         print("User:")
         print(user)

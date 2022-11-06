@@ -22,6 +22,10 @@
    <button>Communiy Home</button>
 </a>
 
+<a href="{% url 'Community:comment-list' %}">
+   <button>Comments List</button>
+</a>
+
 
  <a href="{% url 'EntryPage:hf-create-account' %}">
    <button>Create Account HF</button>
@@ -49,8 +53,6 @@
 <a href="{% url 'RestaurantFinder:home-list-view' %}">
    <button>Restaurant List</button>
 </a>
-
-
 
 <a href="{% url 'ReservationApp:reservation-detail' %}">
    <button>Reservation Detail</button>
