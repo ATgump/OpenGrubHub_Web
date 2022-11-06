@@ -16,8 +16,13 @@
       <table width="100%" border="0" cellspacing="10px" cellpadding="10px">
         {{ reservation_form }}
         </table>
-        <button type="submit" value="Save" class="btn save">Create Account</button>
+        <button id="btn-submit" type="submit" value="Save" class="btn save" onClick="saveReservation();">Submit</button>
     </form>
   </div>  
 </body>
+<script type="text/javascript">
+  function saveReservation(){
+      document.getElementById("successMessage").style.display="block";
+  }
+  </script>
 </html>

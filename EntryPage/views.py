@@ -96,10 +96,12 @@ class RestaurantCreateView(View):
                 if user.is_active:
                     login(request, user)
                 return HttpResponseRedirect(reverse("EntryPage:authenticated_homepage"))
+        else:
+            print("FORM INVALID")
         return render(
             request,
             self.template_name,
-            {"user_form": user_form, "profile_form": profile_form},
+            {"user_form": user_form, "profile_form": profile_form,"API_KEY": settings.GOOGLE_MAPS_API_KEY,},
         )
 
 

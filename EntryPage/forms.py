@@ -76,13 +76,15 @@ class CustomerProfileForm(forms.ModelForm):
 
 
 class RestaurantProfileForm(forms.ModelForm):
+    #geoL = forms.CharField(max_length=20,widget=forms.HiddenInput())
     class Meta:
         model = RestaurantProfile
-        fields = ("restaurant_address","restaurant_name",)  #'geolocation',)
+        fields = ("restaurant_address","restaurant_name","lat","long")  #'geolocation',)
         widgets = {
             "restaurant_address": forms.TextInput(
                 attrs={"class": "autocomplete-items2"}
             ),
             "first_name":forms.HiddenInput(),  
             "last_name":forms.HiddenInput(),
+            #"geolocation":forms.HiddenInput(),
         }

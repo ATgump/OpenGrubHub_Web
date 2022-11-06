@@ -37,6 +37,7 @@ LOGIN_URL = "/login"
 INSTALLED_APPS = [
     "admin_interface",
     "colorfield",
+    "Profiles",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -52,7 +53,6 @@ INSTALLED_APPS = [
     ### MY APPS
     "EntryPage",
     "OpenGrubHub_Web",
-    "Profiles",
     "FileUpload",
     "ReservationApp",
     "RestaurantFinder",

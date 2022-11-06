@@ -1,7 +1,7 @@
 {% block content %}
 
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p id="error-msg">Your username and password didn't match. Please try again.</p>
 {% endif %}
 
 {% if next %}
@@ -26,7 +26,7 @@
 </tr>
 </table>
 
-<input type="submit" value="login">
+<input type="submit" value="login" id="btn-login">
 <input type="hidden" name="next" value="{{ next }}">
 </form>
 

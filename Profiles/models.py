@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,BaseUserManager
+from django.contrib.auth.models import AbstractUser,BaseUserManager,UserManager
 
 # Create your models here.
 from django.db.models.signals import post_save
@@ -9,7 +9,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from star_ratings.models import Rating
 from django.utils.translation import gettext as _
 ## Change this to extend the User model
-class UserManager(BaseUserManager):
+class UserManager(UserManager):
     """Define a model manager for User model with no username field."""
 
     use_in_migrations = True
@@ -55,11 +55,13 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = UserManager()
+    # class Meta:
+    #     proxy = True
     def __str__(self):
         if self.is_customer:
             return self.username
         else:
-            return self.username  ## change this to restaurant name when this is setup
+            return self.restaurant_profile.restaurant_name 
 
 class CustomerProfile(models.Model):
     user = models.OneToOneField(
@@ -82,7 +84,9 @@ class RestaurantProfile(models.Model):
         User, on_delete=models.CASCADE, related_name="restaurant_profile", null=True
     )
     restaurant_address = map_fields.AddressField(max_length=200, null=True)
-    geolocation = map_fields.GeoLocationField(max_length=100, null=True)
+    #geolocation = map_fields.GeoLocationField(max_length=100, null=True)
+    lat = models.DecimalField(max_digits=22,decimal_places=16,null=True)
+    long = models.DecimalField(max_digits=22,decimal_places=16,null=True)
     ratings = GenericRelation(Rating, related_query_name='ratings')
     restaurant_name = models.CharField(_('restuarant name'), max_length=60, null=True)
     def get_absolute_url(self):

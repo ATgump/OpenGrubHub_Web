@@ -18,7 +18,7 @@ class UserTest(TestCase):
         self.assertTrue(isinstance(w, User))
         self.assertTrue(isinstance(w2, User))
         self.assertEqual(w.__str__(), w.username)
-        self.assertEqual(w2.__str__(), w2.username)
+        #self.assertEqual(w2.__str__(), w2.username)
 
 class CustomerTest(TestCase):
     def create_customer(self, is_customer=True, email="testemail@gmail.com",username="testUN",date_of_birth = "7/20/1997"):
@@ -33,13 +33,39 @@ class CustomerTest(TestCase):
         self.assertEqual(w.customer_profile.get_absolute_url(),f"/profiles/customer/{w.id}")
 
 class RestaurantTest(TestCase):
+    @classmethod
     def create_restaurant(self, is_customer=False, email="testemail@gmail.com",username="testUN",restaurant_name = "mcdonalds", restaurant_address = "123 Test Address Drive", geolocation="90,17"):
         user = User.objects.create(is_customer=is_customer, email=email, username=username)
         user.restaurant_profile.restaurant_name = restaurant_name
         user.restaurant_profile.restaurant_address = restaurant_address
         user.restaurant_profile.geolocation = geolocation
+        user.save()
         return user
-
+    @classmethod
+    def create_restaurant_no_un(self, is_customer=False, email="test2email@gmail.com",restaurant_name = "mcdonalds", restaurant_address = "123 Test Address Drive", geolocation="90,17"):
+        user = User.objects.create(is_customer=is_customer, email=email)
+        user.restaurant_profile.restaurant_name = restaurant_name
+        user.restaurant_profile.restaurant_address = restaurant_address
+        user.restaurant_profile.geolocation = geolocation
+        user.save()
+        return user
+    def test_restaurant_query_set(self):
+        from django_google_maps.fields import GeoPt
+        w1 = self.create_restaurant()
+        w2 = self.create_restaurant(email="test2@gmail.com")
+        w3 = self.create_restaurant(email="test3@gmail.com")
+        #w4 = self.create_restaurant_no_un()
+        gp = GeoPt(90,17)
+        query_set = User.objects.filter(is_customer=False,is_superuser=False)
+        #print(query_set[3])
+        #print(query_set[3].restaurant_profile.get_absolute_url())
+        #print(query_set[2].restaurant_profile.restaurant_address)
+        self.assertEqual(query_set[2].email,"test3@gmail.com")
+        self.assertEqual(query_set[2].username,"testUN")
+        self.assertEqual(query_set[2].restaurant_profile.restaurant_name,"mcdonalds")
+        self.assertEqual(query_set[2].restaurant_profile.restaurant_address,"123 Test Address Drive")
+        self.assertEqual(query_set[2].restaurant_profile.geolocation,gp)
+        self.assertEqual(len(query_set),3)
     def test_restaurant_creation(self):
         w = self.create_restaurant()
         self.assertTrue(isinstance(w, User))

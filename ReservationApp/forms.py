@@ -21,6 +21,7 @@ TIME_CHOICES = [
                 (datetime.time(8,45),"8:45 PM"),
                 (datetime.time(9),"9:00 PM"),
 ]
+
 TABLE_SIZES = [
                 ("2",2),
                 ("3",3),
