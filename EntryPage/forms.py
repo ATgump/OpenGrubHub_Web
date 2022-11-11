@@ -82,7 +82,7 @@ class RestaurantProfileForm(forms.ModelForm):
         fields = ("restaurant_address","restaurant_name","lat","long")  #'geolocation',)
         widgets = {
             "restaurant_address": forms.TextInput(
-                attrs={"class": "autocomplete-items2"}
+                attrs={"class": "autocomplete-it"}
             ),
             "first_name":forms.HiddenInput(),  
             "last_name":forms.HiddenInput(),

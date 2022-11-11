@@ -51,6 +51,8 @@ class CustomUserAdmin(UserAdmin):
         "get_address",
         "get_id",
         "get_restaurant_name",
+        "get_restaurant_lat",
+        "get_restaurant_long",
         "get_customer_status",
     )
     list_select_related = (
@@ -87,6 +89,12 @@ class CustomUserAdmin(UserAdmin):
         return instance.restaurant_profile.restaurant_address
 
     get_address.short_description = "address"
+    def get_restaurant_lat(self, instance):
+        return instance.restaurant_profile.lat
+    get_restaurant_lat.short_description = "Restaurant lat"
+    def get_restaurant_long(self, instance):
+        return instance.restaurant_profile.long
+    get_restaurant_long.short_description = "Restaurant long"
 
     def get_id(self, instance):
         return instance.id

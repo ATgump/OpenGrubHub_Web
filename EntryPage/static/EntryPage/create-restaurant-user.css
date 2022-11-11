@@ -6,7 +6,7 @@
     font: 16px Arial;  
   }
 
-  .restaurant.profile div {
+  .restaurant.profile .user-form div {
     border: 1px solid transparent;
     background-color:#d4d4d4;
     padding: 10px;
@@ -14,6 +14,25 @@
     text-align: center;
 
   }
+  .restaurant.profile .user-form {  
+    float: left;
+
+  }
+  .restaurant.profile .table-form {  
+    float: right;
+
+  }
+
+  /* .restaurant.profile .profile-form div {
+    border: 1px solid transparent;
+    background-color:#d4d4d4;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+  }
+  .restaurant.profile .profile-form {
+    float: left;
+  } */
   
 .restaurant.profile input[type="submit"] {
     background-color:#881f1f;
@@ -31,3 +50,58 @@
     border: 3px solid #f1f1f1;
     z-index: 9;
   }
+
+  .add{
+    cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .form-popup  label {
+      display: inline-block;
+      margin-bottom: 5px;
+     }
+     
+     .form-popup.form-row {
+       display: flex;
+     }
+     
+     .form-popup.form-group {
+       padding: 5px;
+       width: 50%;
+     }
+     
+     .form-popup.form-group input {
+       width: 100%;
+     }
+
+
+
+    /* label {
+      display: inline-block;
+      margin-bottom: 5px;
+     }
+     
+     .form-row {
+       display: flex;
+     }
+     
+     .form-group {
+       padding: 5px;
+       width: 50%;
+     }
+     
+     .form-group input {
+       width: 100%;
+     } */

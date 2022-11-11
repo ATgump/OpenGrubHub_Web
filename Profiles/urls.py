@@ -21,6 +21,7 @@ from .views import (
     customer_profile_view,
     UpdateProfile,
     restaurant_profile_view,
+    restaurant_manage_view,
 )
 
 app_name = "Profiles"
@@ -28,5 +29,6 @@ urlpatterns = [
     path("", member_directory_view, name="member_directory_view"),
     path("customer/<int:id>", customer_profile_view, name="CustomerProfile"),
     path("restaurant/<int:id>", restaurant_profile_view, name="RestaurantProfile"),
+    path("restaurant_manage/<int:id>", restaurant_manage_view, name="RestaurantManage"),
     path("<user>/edit", UpdateProfile.as_view(), name="edit_profile"),
 ]

@@ -90,6 +90,8 @@ class RestaurantCreateView(View):
             ## ADD PROFILE FIELDS AND THEN SAVE PROFILE (see if can use the form_save)
             user.restaurant_profile.restaurant_address = profile_form.cleaned_data.get("restaurant_address")
             user.restaurant_profile.restaurant_name = profile_form.cleaned_data.get("restaurant_name")
+            user.restaurant_profile.lat = profile_form.cleaned_data.get("lat")
+            user.restaurant_profile.long = profile_form.cleaned_data.get("long")
             user.restaurant_profile.save()
             user = authenticate(request, email=email, password=password)
             if user is not None:

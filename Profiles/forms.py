@@ -29,3 +29,7 @@ class UserUpdateForm(forms.ModelForm):
                 "Password and Password confirmation do not match"
             )
 
+## TODO FORM
+class TableForm(forms.ModelForm):
+    pass
+    

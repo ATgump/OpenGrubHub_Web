@@ -74,6 +74,8 @@ class CustomerProfile(models.Model):
 
         return reverse("Profiles:CustomerProfile", kwargs={"id": self.user.id})
 
+    
+
     # def __str__(self):
     #     return self.user.username
 
@@ -92,6 +94,9 @@ class RestaurantProfile(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse("Profiles:RestaurantProfile", kwargs={"id": self.user.id})
+    def get_absolute_url_manage(self):
+        from django.urls import reverse
+        return reverse("Profiles:RestaurantManage", kwargs={"id": self.user.id})
 
     # def __str__(self):
     #     return self.user.username

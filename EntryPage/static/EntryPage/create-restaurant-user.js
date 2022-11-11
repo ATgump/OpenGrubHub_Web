@@ -7,7 +7,8 @@
           // location types.
             //console.log(sessionToken)
           var location_input = document.getElementById('id_PF-restaurant_address')
-          var geolocation = document.getElementById("id_PF-geolocation")
+          var lat = document.getElementById("id_PF-lat")
+          var long = document.getElementById("id_PF-long")
           var autocomplete = new google.maps.places.Autocomplete(
               /** @type {!HTMLInputElement} */location_input, lat, long,
               {types: ['geocode'],
@@ -39,14 +40,15 @@
       }
     }
 
+
 function fillInGeolocation(){
   const place = this.getPlace();
   console.log(place)
   document.getElementById("id_PF-long").value= place.geometry.location.lng();
   document.getElementById("id_PF-lat").value= place.geometry.location.lat();
 
-  for(const component of place.geometry)
-  console.log(document.getElementById("id_PF-geolocation").value)
+//  for(const component of place.geometry)
+ // console.log(document.getElementById("id_PF-geolocation").value)
 }
 function fillInAddress() {
   // Get the place details from the autocomplete object.

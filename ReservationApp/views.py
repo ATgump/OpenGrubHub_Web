@@ -43,3 +43,9 @@ def viewReservationDetail(request):
     return render(request,"ReservationApp/viewReservationDetail.html",{})
 def viewContacts(request):
     return render(request,"ReservationApp/viewContacts.html",{})
+
+
+def cancelReservation(request):
+    return render(request,"ReservationApp/cancelReservation.html",{})
+def editReservation(request):
+    return render(request,"ReservationApp/editReservation.html",{})

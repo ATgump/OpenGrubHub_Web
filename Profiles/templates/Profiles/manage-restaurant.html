@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Profiles/css/manage-restaurant.css' %}">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script type="text/javascript" src="{% static 'Profiles/js/manage-restaurant.js' %}"></script>
+    <button class="open-button" onclick="openForm()">Add Table</button>
+    <div class="form-popup" id="myForm">
+        <form autocomplete="off" class="table-form" method="post">{% csrf_token %}
+                ## FORM HERE ##
+            <button type="submit" value="Save" class="btn save">Add</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+
+
+
+    </div>  
+
+</body>
+</html>

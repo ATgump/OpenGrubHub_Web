@@ -67,6 +67,14 @@
    <button>Reservation Contacts</button>
 </a>
 
+<a href="{% url 'ReservationApp:reservation-edit' %}">
+   <button>Reservation Edit</button>
+</a>
+<a href="{% url 'ReservationApp:reservation-cancel' %}">
+   <button>Reservation Cancel</button>
+</a>
+
+
 <!-- 
 path("details/", viewReservationDetail, name="reservation-detail"),
 path("list/", viewReservations, name="reservation-list"),
