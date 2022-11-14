@@ -27,7 +27,7 @@ GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 LOGIN_REDIRECT_URL = "/memberhome"
 LOGOUT_REDIRECT_URL = "EntryPage:entry_view"
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     "ReservationApp",
     "RestaurantFinder",
     "Community",
+    "Table",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -84,6 +85,7 @@ TEMPLATES = [
             os.path.join(BASE_DIR, "ReservationApp", "templates"),
             os.path.join(BASE_DIR, "RestaurantFinder", "templates"),
             os.path.join(BASE_DIR, "Community","templates"),
+            os.path.join(BASE_DIR,"Table","templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -141,6 +143,7 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
 
 TIME_INPUT_FORMATS = ['%I:%M %p',]
 # Static files (CSS, JavaScript, Images)
@@ -154,6 +157,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "EntryPage/static",
     BASE_DIR / "Profiles/static",
     BASE_DIR / "Community/static",
+    BASE_DIR / "Table/static",
     str(BASE_DIR.joinpath('static')),
 ]
 

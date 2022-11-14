@@ -1,54 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RestaurantProfile</title>
-    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
-    <link rel="stylesheet" href="{% static 'Profiles/css/ratings-styling.css' %}">
-    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
-</head>
-<body>
-<!-- <h1>Name = {{ obj.restaurant_profile.restaurant_name }}</h1>
-<h2>Address = {{ obj.restaurant_profile.restaurant_address }}</h2>
-{% load ratings %}
-{% ratings obj %} -->
-<!-- <button class="open-button" onclick="openForm()">Restaurant Account Creation</button> -->
-</body>
-</html>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-<meta content="zh-cn" http-equiv="Content-Language" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Open Grab Table Hub</title>
-<style type="text/css">
-.auto-style1 {
-	text-align: center;
-  align-items: center;
-}
-.auto-style2 {
-	text-align: center;
-	font-size: x-large;
-}
-.auto-style3 {
-	margin-left: 0px;
-}
-.auto-style5 {
-	border-style: solid;
-	border-width: 1px;
-}
-</style>
+  {% load static %}
+  {% load ratings %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestaurantProfile</title>
+  <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+  <link rel="stylesheet" href="{% static 'Profiles/css/ratings-styling.css' %}">
+  <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+  <style type="text/css">
+  .auto-style1 {
+    text-align: center;
+    align-items: center;
+  }
+  .star-ratings {
+    text-align: center;
+    align-items: center;
+  }
+  .auto-style2 {
+    text-align: center;
+    font-size: x-large;
+  }
+  .auto-style3 {
+    margin-left: 0px;
+  }
+  .auto-style5 {
+    border-style: solid;
+    border-width: 1px;
+  }
+  </style>
 </head>
 
 <body>
 
 <p class="auto-style2"><strong>{{ obj.restaurant_profile.restaurant_name }}</strong></p>
-<a href="{{ obj.restaurant_profile.get_absolute_url_manage }}"> Manage Restaurant</a>
+
+<div class="auto-style1">{% ratings obj %}</div>
+<div class="auto-style1"><a href="{{ obj.restaurant_profile.get_absolute_url_manage }}"> Manage Restaurant</a></div>
 <p class="auto-style1"><img alt="" class="auto-style3" src="" /></p>
 <p class="auto-style1"><a href="{% url 'ReservationApp:make-reservation-view' %}">
   <button>Reservation Home</button>

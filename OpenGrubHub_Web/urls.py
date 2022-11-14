@@ -27,4 +27,5 @@ urlpatterns = [
     path("restaurant-find/", include("RestaurantFinder.urls")),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('community/',include("Community.urls")),
+    path('table/',include("Table.urls")),
 ]
