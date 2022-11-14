@@ -1,0 +1,55 @@
+﻿
+
+/*   Global */
+body {background-color :#eeeeee}
+
+/* Containers */
+#wrapper {width:900px; margin:0px auto; background-color:#ffffff}
+
+<style type="text/css">
+.auto-style3 {
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.auto-style5 {
+	text-align: left;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-size: large;
+}
+.auto-style6 {
+	font-size: x-large;
+}
+.auto-style7 {
+	font-size: x-small;
+}
+.auto-style8 {
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.auto-style9 {
+	margin-bottom 0px;
+}
+
+#title {background-color:#FF9933; border-bottom: 1px #eeeeee solid;}
+#about {background-color:#FF9933;}
+
+#guide 				{background-color:gray; clear:both;}
+#guide ul 			{width:100%; float:left; margin:0px; background-color:gray;
+						border-bottom: 3px #cccccc solid;	}
+#guide ul li		{ display:inline;}
+#guide ul li a		 {float:left; padding: 10px 20px; }
+
+#guide a:link  		 {color:#ffffff;}
+#guide a:visited 	{color:#ffffff;}
+#guide a:active 	{color:#ffffff;}
+#guide a:hover 		{color:#ffffff;background-color :#770000;
+#guide a:focus 		{color:#ffffff;} 
+#banner 			{border:1px #000000 solid;}
+#subbanner  		 {width:100%; background-color:#555555;
+			   padding:15x 0; overflow:hidden;}
+#subbanner h3			{color:#ffffff;font-size:16px; font-weight:bold;
+				text-align:center; line-height:180%;}
+#content{border:1px #000000 solid; border-bottom: 3px #cccccc solid;}
+
+</style>
