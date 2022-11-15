@@ -6,7 +6,7 @@ body {background-color :#eeeeee}
 /* Containers */
 #wrapper {width:900px; margin:0px auto; background-color:#ffffff}
 
-<style type="text/css">
+
 .auto-style3 {
 	text-align: left;
 	font-family: Arial, Helvetica, sans-serif;
@@ -28,7 +28,7 @@ body {background-color :#eeeeee}
 	margin-bottom: 0px;
 }
 .auto-style9 {
-	margin-bottom 0px;
+	margin-bottom: 0px;
 }
 
 #title {background-color:#FF9933; border-bottom: 1px #eeeeee solid;}
@@ -43,7 +43,7 @@ body {background-color :#eeeeee}
 #guide a:link  		 {color:#ffffff;}
 #guide a:visited 	{color:#ffffff;}
 #guide a:active 	{color:#ffffff;}
-#guide a:hover 		{color:#ffffff;background-color :#770000;
+#guide a:hover 		{color:#ffffff;background-color :#770000;}
 #guide a:focus 		{color:#ffffff;} 
 #banner 			{border:1px #000000 solid;}
 #subbanner  		 {width:100%; background-color:#555555;
@@ -51,5 +51,3 @@ body {background-color :#eeeeee}
 #subbanner h3			{color:#ffffff;font-size:16px; font-weight:bold;
 				text-align:center; line-height:180%;}
 #content{border:1px #000000 solid; border-bottom: 3px #cccccc solid;}
-
-</style>

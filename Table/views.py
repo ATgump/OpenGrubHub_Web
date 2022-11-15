@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import View
 # from .forms import 
+class TableCreate(View):
+    template_name: str = "create-table.html"
+
 # class CustomerCreateView(View):
 #     user_form_class = UserForm
 #     profile_form_class = CustomerProfileForm

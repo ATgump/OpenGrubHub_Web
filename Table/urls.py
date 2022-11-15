@@ -17,10 +17,10 @@ Including another URLconf
 from django.urls import path
 
 from .views import (
-    table_create_view
+    TableCreate
 )
 
-app_name = "EntryPage"
+# app_name = "EntryPage"
 urlpatterns = [
     path("", TableCreate.as_view(), name="create-table"),
 ]
