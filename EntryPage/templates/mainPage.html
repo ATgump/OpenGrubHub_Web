@@ -22,19 +22,29 @@ Make your life easier! </p>
 
 <div id= "guide">
 	<ul>
-		<li><a href="{% url 'EntryPage:entry_view' %}">Welcome</a></li>
+		<li><a href="{% url 'EntryPage:entry_view' %}">TESTING ONLY</a></li>
 		<!-- Make search Go to the Restaurant List -->
-		<li><a href="search.html">Search</a></li>
+		<li><a href="{% url 'RestaurantFinder:home-list-view' %}">Restaurant's</a></li>
 
 		<!-- Change the about us HTML URL -->
-		<li><a href="aboutUS.html">About</a></li>
-		<li><a href="contact.html">Contact</a></li>
+
 		<!-- ADD THESE URLS -->
-		<li><a href= "">Login</a></li>
-		<li><a href= "">Create Account Restaurant</a></li>
-		<li><a href= "">Create Account Customer</a></li>
-		<li><a href= "">Community</a></li>
-		<li><a href= "">Add Profile Image</a></li>
+		{% if user.is_authenticated %}
+		{% if request.user.is_customer == True %}
+		<li><a href= "{% url 'ReservationApp:reservation-list' %}">View Reservation's</a></li>
+		{% else %}
+		<li><a href= "{% url 'ReservationApp:reservation-list' %}">View Reservation's</a></li>
+		{% endif %}
+		<li><a href= "{% url 'EntryPage:logout' %}">Logout</a></li>
+
+		{% else %}
+		<li><a href= "{% url 'EntryPage:login' %}">Login</a></li>
+		<li><a href= "{% url 'EntryPage:restaurant-create-view' %}">Create Account Restaurant</a></li>
+		<li><a href= "{% url 'EntryPage:customer-create-view' %}">Create Account Customer</a></li>
+		{% endif %}
+		<li><a href="{% url 'EntryPage:about-us' %}">About</a></li>
+		<!-- <li><a href= "">Community</a></li>
+		<li><a href= "">Add Profile Image</a></li> -->
 
 	</ul>
 </div>

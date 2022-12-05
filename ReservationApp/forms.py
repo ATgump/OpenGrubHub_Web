@@ -69,7 +69,9 @@ class ReservationForm(forms.ModelForm):
             "phone_number",
             "high_seat",
         )
+        exclude = ("restaurant","customer",)
         widgets = {
+           
             "time":forms.Select(choices=TIME_CHOICES,attrs={"valid_formats":valid_time_formats}),
             "table_size":forms.Select(choices=TABLE_SIZES),
         }

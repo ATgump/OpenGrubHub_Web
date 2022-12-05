@@ -5,111 +5,17 @@
 <title>Cancel a Reservation</title>
 <link rel="stylesheet" type="text/css" href="reservations.css">
 </head>
-<body>
-<div class="container">
-  <div class="header"><a href="#"><img src="restaurant.jpg" alt="Insert Logo Here" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background: #C6D580; display:block;" /></a> 
-    RESTAURANT RESERVATIONS
-	<!-- end .header --></div>
-  <div class="content">
-  	<table width="100%" border="0" cellspacing="10px" cellpadding="10px">
-      <tr>
-        <td>Reservation Number</td>
-        <td><input name="reservationNumber" type="text" size="30" maxlength="15" /></td>
-        <td><input name="search" type="button" value="Search" class="myButton" onClick="searchReservation();"/></td>
-      </tr>
-     </table>
-    
-    <div id="reservationDetails" class="hideContent">
-        <table width="100%" border="0" cellspacing="10px" cellpadding="10px">
-          <tr>
-            <td>Date</td>
-            <td><input name="date" type="date" size="11" maxlength="11" value="2015-12-28"/></td>
-          </tr>
-          <tr>
-            <td>Time</td>
-            <td>
-                <select name="time">
-                    <option value="5:00 PM">5:00 PM</option>
-                    <option value="5:15 PM">5:15 PM</option>
-                    <option value="5:30 PM">5:30 PM</option>
-                    <option value="5:45 PM">5:45 PM</option>
-                    <option value="6:00 PM">6:00 PM</option>
-                    <option value="6:15 PM">6:15 PM</option>
-                    <option value="6:30 PM">6:30 PM</option>
-                    <option value="6:45 PM">6:45 PM</option>
-                    <option value="7:00 PM">7:00 PM</option>
-                    <option value="7:15 PM">7:15 PM</option>
-                    <option value="7:30 PM">7:30 PM</option>
-                    <option value="7:45 PM">7:45 PM</option>
-                    <option value="8:00 PM">8:00 PM</option>
-                    <option value="8:15 PM">8:15 PM</option>
-                    <option value="8:30 PM" selected="selected">8:30 PM</option>
-                    <option value="8:45 PM">8:45 PM</option>
-                    <option value="9:00 PM">9:00 PM</option>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td>Table Size</td>
-            <td>
-                <select name="tableSize">
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4" selected="selected">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-            </td>
-          </tr>
-          <tr>
-            <td>With High Seat for Baby</td>
-            <td><input name="babySeat" type="checkbox" value="1" checked></td>
-          </tr>
-          <tr>
-            <td>First Name</td>
-            <td><input name="fname" type="text" size="30" maxlength="20" value="First"/></td>
-          </tr>
-          <tr>
-            <td>Last Name</td>
-            <td><input name="lname" type="text" size="30" maxlength="20" value="Last"/></td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td><input name="email" type="text" size="30" maxlength="30" value="test@gmail.com"/></td>
-          </tr>
-          <tr>
-            <td>Phone Number</td>
-            <td><input name="phonenum" type="text" size="30" maxlength="10" value="123-456-7890"/></td>
-          </tr>
-        </table>
-        <div class="divLeftPadding">
-            <input name="submit" type="button" value="Cancel Reservation" class="myButton" onClick="saveReservation();"/>
-        </div>
-    	<div id="successMessage" class="alert-box success" style="display:none;"><span>success: </span>Reservation 12345621 is cancelled.</div>
+<form method="post">{% csrf_token %}
+	
 
-   	</div>
-    	
-    <br />
-  <!-- end .content --></div>
-    <div class="footer">
-    <p>Footer</p>
-  <!-- end .footer --></div>
 
-  <!-- end .container --></div>
-</body>
-<script type="text/javascript">
 
-function searchReservation(){
-	document.getElementById("reservationDetails").style.display= "block";
-}
-
-function saveReservation(){
-		document.getElementById("successMessage").style.display="block";
-}
-
-</script>
+  <p>Are you sure you want to cancel your {{ object.time }} reservation  on {{ object.date }} at {{ object.restaurant }}?  </p>
+  
+  
+  
+  
+    <input type="submit" value="Confirm">
+  </form>
+  
 </html>

@@ -28,9 +28,26 @@ GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+#GDAL_LIBRARY_PATH = r'C:\Program Files\GDAL\gdal305.dll'
+try:
+    from osgeo import gdal
+    gdal_path = Path(gdal.__file__)
+    OSGEO4W = os.path.join(gdal_path.parent)
+    os.environ["OSGEO4W_ROOT"] = OSGEO4W
+    os.environ["GDAL_DATA"] = os.path.join(OSGEO4W, "data", "gdal")
+    os.environ["PROJ_LIB"] = os.path.join(OSGEO4W, "data", "proj")
+    os.environ["PATH"] = OSGEO4W + ";" + os.environ["PATH"]
+    GEOS_LIBRARY_PATH = str(os.path.join(OSGEO4W, "geos_c.dll"))
+    GDAL_LIBRARY_PATH = str(os.path.join(OSGEO4W, "gdal304.dll"))
+except ImportError:
+    GEOS_LIBRARY_PATH = None
+    GDAL_LIBRARY_PATH = None
+    print("error")
+#GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
 
-LOGIN_REDIRECT_URL = "/memberhome"
-LOGOUT_REDIRECT_URL = "EntryPage:entry_view"
+
+LOGIN_REDIRECT_URL = "EntryPage:hf-main-page"
+LOGOUT_REDIRECT_URL = "EntryPage:hf-main-page"
 LOGIN_URL = "/login"
 # Application definition
 # FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
@@ -44,6 +61,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.gis",
     "django_google_maps",
     "crispy_forms",
     "star_ratings",

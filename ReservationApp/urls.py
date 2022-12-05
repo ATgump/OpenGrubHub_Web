@@ -20,13 +20,13 @@ from .views import MakeReservationView,viewReservationDetail,viewReservations,vi
 
 app_name = "ReservationApp"
 urlpatterns = [
-    path("create/", MakeReservationView.as_view(), name="make-reservation-view"),
-    path("details/", viewReservationDetail, name="reservation-detail"),
+    path("create/<int:restaurant>", MakeReservationView.as_view(), name="make-reservation-view"),
+    path("<pk>/details/", viewReservationDetail, name="reservation-detail"),
     path("list/", viewReservations, name="reservation-list"),
     path("seats/", viewSeatArea, name="seat-list"),
     path("contacts/", viewContacts, name="contacts"),
-    path("cancel/", cancelReservation, name="reservation-cancel"),
-    path("edit/", editReservation, name="reservation-edit"),
+    path("<pk>/cancel/", cancelReservation.as_view(), name="reservation-cancel"),
+    path("<pk>/edit/", editReservation.as_view(), name="reservation-edit"),
     # path("board/",board_profiles_view,name="board_view"),
     # path("",member_directory_view,name="member_directory_view"),
     # path("<user>/",individual_profile_view,name="memberProfile"),

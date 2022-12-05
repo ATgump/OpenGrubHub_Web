@@ -86,5 +86,7 @@ class RestaurantProfileForm(forms.ModelForm):
             ),
             "first_name":forms.HiddenInput(),  
             "last_name":forms.HiddenInput(),
+            "lat":forms.HiddenInput(),  
+            "long":forms.HiddenInput(),
             #"geolocation":forms.HiddenInput(),
         }

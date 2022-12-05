@@ -32,7 +32,7 @@ class UserLoginView(LoginView):
 
 
 class UserLogoutView(LogoutView):
-    redirect_field_name: str = "entry_view"
+    redirect_field_name: str = "mainPage.html"
 
 
 def user_entry_view(request):
@@ -57,9 +57,9 @@ class RestaurantCreateView(View):
     user_form_class = UserForm
     profile_form_class = RestaurantProfileForm
     # model = User
-    template_name: str = "create-restaurant-user2.html"
-    success_url = reverse_lazy("authenticated_homepage")
-    next_page = "authenticated_user_landing.html"
+    template_name: str = "create-restaurant-user.html"
+    success_url = reverse_lazy("hf-main-page")
+    next_page = "mainPage.html"
     def get(self, request):
         user_form = self.user_form_class(prefix="UF")
         profile_form = self.profile_form_class(prefix="PF")
@@ -97,7 +97,7 @@ class RestaurantCreateView(View):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                return HttpResponseRedirect(reverse("EntryPage:authenticated_homepage"))
+                return HttpResponseRedirect(reverse("EntryPage:hf-main-page"))
         else:
             print("FORM INVALID")
         return render(
@@ -112,8 +112,8 @@ class CustomerCreateView(View):
     profile_form_class = CustomerProfileForm
     # model = User
     template_name: str = "create-customer-user.html"
-    success_url = reverse_lazy("authenticated_homepage")
-    next_page = "authenticated_user_landing.html"
+    success_url = reverse_lazy("hf-main-page")
+    next_page = "mainPage.html"
 
     def get(self, request):
         user_form = self.user_form_class(prefix="UF")
@@ -146,7 +146,7 @@ class CustomerCreateView(View):
                 print("not none")
                 if user.is_active:
                     login(request, user)
-                return HttpResponseRedirect(reverse("EntryPage:authenticated_homepage"))
+                return HttpResponseRedirect(reverse("EntryPage:hf-main-page"))
         return render(
             request,
             self.template_name,

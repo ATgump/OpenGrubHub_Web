@@ -1,9 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from django.views.generic import View
+from django.urls import reverse_lazy,reverse
+from . forms import TableCreateForm
 # from .forms import 
 class TableCreate(View):
     template_name: str = "create-table.html"
+    table_create_form = TableCreateForm
+    success_url = reverse_lazy("Profiles:RestaurantManage")
 
+    def get(self,request):
+        table_form = self.table_create_form()
+        return render(
+            request,
+            self.template_name,
+            {"table_form":table_form},
+        )
+    def post(self,request):
+        table_form = self.table_create_form(request.POST or None)
+        if table_form.is_valid():
+            table = table_form.save(commit=False)
+            #table.restaurant = 
+           # return HttpResponseRedirect(reverse("Profiles:RestaurantManage"))
+        return render(
+            request,
+            self.template_name,
+            {"table_form":table_form},
+       )
 # class CustomerCreateView(View):
 #     user_form_class = UserForm
 #     profile_form_class = CustomerProfileForm

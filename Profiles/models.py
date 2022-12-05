@@ -59,7 +59,7 @@ class User(AbstractUser):
     #     proxy = True
     def __str__(self):
         if self.is_customer:
-            return self.username
+            return self.email
         else:
             return self.restaurant_profile.restaurant_name 
 
@@ -90,6 +90,8 @@ class RestaurantProfile(models.Model):
     lat = models.DecimalField(max_digits=22,decimal_places=16,null=True)
     long = models.DecimalField(max_digits=22,decimal_places=16,null=True)
     ratings = GenericRelation(Rating, related_query_name='ratings')
+    ## Get Profile image working
+    ##profile_image = models.ImageField(upload_to="/profile-photos",default = "/profile-photos/default.jfif",null=True)
     restaurant_name = models.CharField(_('restuarant name'), max_length=60, null=True)
     def get_absolute_url(self):
         from django.urls import reverse
