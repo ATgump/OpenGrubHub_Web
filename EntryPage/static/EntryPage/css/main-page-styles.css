@@ -1,8 +1,11 @@
 ﻿
 
 /*   Global */
-body {background-color :#eeeeee}
-
+body {
+  height: 100%;
+  background-color :#eeeeee
+  background-image: url('../img/table.jpg');
+}
 /* Containers */
 #wrapper {width:900px; margin:0px auto; background-color:#ffffff}
 
