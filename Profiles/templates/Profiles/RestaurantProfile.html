@@ -41,9 +41,9 @@
 
 
 <div class="auto-style1">{% ratings obj %}</div>
-{% if obj.email == request.user.email %}
+<!-- {% if obj.email == request.user.email %}
 <div class="auto-style1"><a href="{{ obj.restaurant_profile.get_absolute_url_manage }}"> Manage Restaurant</a></div>
-{% endif %}
+{% endif %} -->
 <p class="auto-style1"><img alt="" class="auto-style3" src="" /></p>
 {% if request.user.is_customer == True %}
 <p class="auto-style1"><a href="{% url 'ReservationApp:make-reservation-view' restaurant=obj.id %}">

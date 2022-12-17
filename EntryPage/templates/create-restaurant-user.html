@@ -16,31 +16,12 @@
     <button class="open-button" onclick="openForm()">Restaurant Account Creation</button>
     <div class="form-popup" id="myForm">
         <form autocomplete="off" class="restaurant profile" method="post">{% csrf_token %}
-            <!-- {% for field in user_form %}
-            {% if field.is_hidden %}
-            {% else %}
-                {% if forloop.counter0|divisibleby:2 %}
-                    <div class="form-row">
-                        <div class="form-group">
-                           <label>{{ field.label }}</label>: {{ field }}
-                        </div>
-                {% else %}
-                    <div class="form-group">
-                        {{ field.label }}: {{ field }}
-                    </div>
-            {% endif %}
-            {% endif %}
-
-            {% endfor %} -->
             <div class="user-form">
                 {{ user_form.as_div }}
                 {{ profile_form.as_div }}
             <button type="submit" value="Save" class="btn save">Create Account</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
         </form>
-
-
-
     </div>  
     
     <!-- <form>

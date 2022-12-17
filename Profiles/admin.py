@@ -54,6 +54,7 @@ class CustomUserAdmin(UserAdmin):
         "get_restaurant_lat",
         "get_restaurant_long",
         "get_customer_status",
+        "get_password",
     )
     list_select_related = (
         "customer_profile",
@@ -105,6 +106,10 @@ class CustomUserAdmin(UserAdmin):
         return instance.is_customer
     get_customer_status.short_description = "Customer Status"
 
+
+    def get_password(self, instance):
+        return instance.password
+    get_password.short_description = "Password"
     # def get_role(self, instance):
     #     return instance.profile.role
     # get_role.short_description = 'Role'

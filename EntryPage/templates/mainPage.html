@@ -22,7 +22,7 @@ Make your life easier! </p>
 
 <div id= "guide">
 	<ul>
-		<li><a href="{% url 'EntryPage:entry_view' %}">TESTING ONLY</a></li>
+		<!-- <li><a href="{% url 'EntryPage:entry_view' %}">TESTING ONLY</a></li> -->
 		<!-- Make search Go to the Restaurant List -->
 		<li><a href="{% url 'RestaurantFinder:home-list-view' %}">Restaurant's</a></li>
 
@@ -32,8 +32,12 @@ Make your life easier! </p>
 		{% if user.is_authenticated %}
 		{% if request.user.is_customer == True %}
 		<li><a href= "{% url 'ReservationApp:reservation-list' %}">View Reservation's</a></li>
+		<li><a href= "{% url 'Community:community-home' %}">Community</a></li>
 		{% else %}
+		
 		<li><a href= "{% url 'ReservationApp:reservation-list' %}">View Reservation's</a></li>
+		<li><a href= "{{ user.restaurant_profile.get_absolute_url }}">Profile</a></li>
+		<li><a href= "{{ user.restaurant_profile.get_absolute_url_manage }}">Manage Restaurant</a></li>
 		{% endif %}
 		<li><a href= "{% url 'EntryPage:logout' %}">Logout</a></li>
 

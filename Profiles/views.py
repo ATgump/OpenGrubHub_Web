@@ -29,6 +29,8 @@ def restaurant_profile_view(request, id):
     )  ### directory in templates/htmldoc (or more directories presumably)
 
 
+### Fix to be popup for now manage page is going to bring you to other pages
+
 def restaurant_manage_view(request, id):
     obj = get_object_or_404(User, id=id)
     context = {"obj": obj}

@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, 
+       initial-scale-1, shrink-to-fit=no">
+  <title>This appears in the browser tab</title>
+  <link rel="stylesheet" href="{% static 'Community/community_home_style.css' %}">
+</head>
+
+<body>
+
+<h1>Welcome to our community!</h1>
+
+</body>
+
+
+
+<div class="form-popup" id="myForm">
+  <form autocomplete="off" class="comment" method="post">{% csrf_token %}
+    <h2>Comment</h2>
+      {{ comment_form.as_div }}
+      <fieldset> 
+      </fieldset>
+      <button type="submit">Submit</button>
+  </form>
+</div>
+<!-- <form action="/" method="post">
+    <h2>Comment</h2>
+    
+      <fieldset>
+    
+        <label for="name">Comment</label>
+        <input type="text" id="comment" name="comment" value="" required>
+   
+    
+      </fieldset>
+    
+    
+      <button type="submit">Submit</button>
+    
+    </form> -->

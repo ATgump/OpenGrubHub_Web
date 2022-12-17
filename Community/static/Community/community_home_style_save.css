@@ -89,37 +89,3 @@ h1 {
     font-weight: 300;
     display: inline;
   }
-
-  h{
-    color:rgb(16, 16, 16);
-    font-size: 24px;
-    text-align: center;
-  
-    
-      background: rgba(255, 255, 255, 0.808);
-      border: 2px solid transparent;
-      font-size: 16px;
-      height: auto;
-      margin: 0;
-      outline: 0;
-      padding: 15px;
-      width: 100%;
-      background-color: #f5f5f5;
-      color: black;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-      margin-bottom: 30px;
-      caret-color: rgb(0, 0, 0);
-      transition: all 350ms;
-      border: 2px solid black;
-      border-color :cornflowerblue
-      
-    }
-
-    .demo{
-        width: 99%;
-        border: 3px solid rgb(235,151,77);
-	    border-radius: 10px;
-    }
-
-
-  

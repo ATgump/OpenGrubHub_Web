@@ -40,14 +40,14 @@ th {
   <thead>
       <tr>
         {% if request.user.is_customer %}
-        <th width = "5%"> ID </th>
+        <th width = "5%"> Reservation Details </th>
         <th width="15%">Time</th>
         <th width="20%">Date</th>
         <th>Seats Requested</th>
         <th>Restaurant</th>
         <th width="25%"></th>
         {% else %}
-        <th width = "5%"> ID </th>
+        <th width = "5%"> Reservation Details </th>
         <th width="15%">Time</th>
         <th width="20%">Date</th>
         <th>Seats Requested</th>
@@ -70,7 +70,7 @@ th {
         <button>Cancel</button>
      </a>/
      <a href="{% url 'ReservationApp:reservation-edit' res.id %}">
-      <button>Edit</button>
+      <button>Edit</button> </a>
 
       {% else %}
       <td> <a href= "{{ res.get_absolute_url }}">{{ res.id }}</a></td>
@@ -81,12 +81,9 @@ th {
       <td>{{ res.phone_number }}</td>
       <td><a href="{% url 'ReservationApp:reservation-cancel' res.id %}">
         <button>Cancel</button>
-     </a>/
-     <a href="{% url 'ReservationApp:reservation-edit' res.id %}">
-      <button>Edit</button>
-
+     </a>
       {% endif %}
-   </a>
+  
     </td>
     </tr>
   {% endfor %}
