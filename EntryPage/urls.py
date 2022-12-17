@@ -18,26 +18,17 @@ from django.urls import path
 
 from .views import (
     CustomerCreateView,
-    user_entry_view,
     UserLoginView,
-    user_landing_view,
     UserLogoutView,
     RestaurantCreateView,
-    get_location_post,
-    createAccountHFView,
-    entryPageHFView,
     mainPageHFView,
     aboutUsView,
 )
 
 app_name = "EntryPage"
 urlpatterns = [
-    path("for_testing", user_entry_view, name="entry_view"),
-    path("aboutus/",aboutUsView,name="about-us"),
-    path("create-accntHF/",createAccountHFView,name="hf-create-account"),
-    path("entry-pageHF/",entryPageHFView,name="hf-entry-page"),
     path("",mainPageHFView,name="hf-main-page"),
-    path("restaurant-register/post-addr/", get_location_post, name="get-location"),
+    path("aboutus/",aboutUsView,name="about-us"),
     path("logout-redirect/", UserLogoutView.as_view(), name="logout"),
     path(
         "customer-register/", CustomerCreateView.as_view(), name="customer-create-view"
@@ -48,5 +39,4 @@ urlpatterns = [
         name="restaurant-create-view",
     ),
     path("login/", UserLoginView.as_view(), name="login"),
-    path("memberhome/", user_landing_view, name="authenticated_homepage"),
 ]

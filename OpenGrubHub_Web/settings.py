@@ -28,7 +28,6 @@ GOOGLE_MAPS_API_KEY = config("GOOGLE_MAPS_API_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-#GDAL_LIBRARY_PATH = r'C:\Program Files\GDAL\gdal305.dll'
 try:
     from osgeo import gdal
     gdal_path = Path(gdal.__file__)
@@ -43,14 +42,13 @@ except ImportError:
     GEOS_LIBRARY_PATH = None
     GDAL_LIBRARY_PATH = None
     print("error")
-#GEOS_LIBRARY_PATH = r'C:\OSGeo4W\bin\geos_c.dll'
-
 
 LOGIN_REDIRECT_URL = "EntryPage:hf-main-page"
 LOGOUT_REDIRECT_URL = "EntryPage:hf-main-page"
 LOGIN_URL = "/login"
-# Application definition
-# FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
+
+## APPS
 INSTALLED_APPS = [
     "admin_interface",
     "colorfield",
@@ -70,12 +68,9 @@ INSTALLED_APPS = [
     "phonenumbers",
     ### MY APPS
     "EntryPage",
-    "OpenGrubHub_Web",
-    "FileUpload",
     "ReservationApp",
     "RestaurantFinder",
     "Community",
-    "Table",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -96,14 +91,11 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(BASE_DIR, "templates"),
             os.path.join(BASE_DIR, "EntryPage", "templates"),
             os.path.join(BASE_DIR, "Profiles", "templates"),
-            os.path.join(BASE_DIR, "FileUpload", "templates"),
             os.path.join(BASE_DIR, "ReservationApp", "templates"),
             os.path.join(BASE_DIR, "RestaurantFinder", "templates"),
             os.path.join(BASE_DIR, "Community","templates"),
-            os.path.join(BASE_DIR,"Table","templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -169,14 +161,11 @@ TIME_INPUT_FORMATS = ['%I:%M %p',]
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
     BASE_DIR / "ReservationApp/static",
     BASE_DIR / "RestaurantFinder/static",
     BASE_DIR / "EntryPage/static",
     BASE_DIR / "Profiles/static",
     BASE_DIR / "Community/static",
-    BASE_DIR / "Table/static",
-    str(BASE_DIR.joinpath('static')),
 ]
 
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))

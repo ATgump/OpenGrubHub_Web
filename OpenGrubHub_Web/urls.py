@@ -18,14 +18,11 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    # path('',home_view,name="home"),
     path("admin/", admin.site.urls),
     path("", include("EntryPage.urls")),
     path("profiles/", include("Profiles.urls")),
-    path("upload/", include("FileUpload.urls")),
     path("reservation/", include("ReservationApp.urls")),
     path("restaurant-find/", include("RestaurantFinder.urls")),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('community/',include("Community.urls")),
-    path('table/',include("Table.urls")),
 ]

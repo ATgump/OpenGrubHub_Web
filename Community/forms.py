@@ -1,6 +1,8 @@
 from django import forms
 from Community.models import Comment
 
+
+## Form for a user comment
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment

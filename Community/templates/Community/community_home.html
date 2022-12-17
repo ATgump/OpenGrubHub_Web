@@ -12,10 +12,7 @@
 </head>
 
 <body>
-
 <h1>Welcome to our community!</h1>
-
-</body>
 <div class="form-popup" id="myForm">
     <form autocomplete="off" class="comment" method="post">{% csrf_token %}
       <h2>Comment</h2>
@@ -25,38 +22,16 @@
         <button type="submit">Submit</button>
     </form>
   </div>
-<!-- <form action="/" method="post">
-    <h2>Comment</h2>
-    
-      <fieldset>
-    
-        <label for="name">please submit comment friendly❤</label>
-        <input type="text" id="comment"  name="comment" value="" required>
-   
-    
-      </fieldset>
-    
-    
-      <button type="submit">Submit</button>
-    
-    </form> -->
     <h1>Comment Area </h1>
-
-
     {% for comment in comment_query_set %}
     <br>
     <div class='demo'>
         <h3 style="margin:1px"> {{ comment.user }}</h3>
         <h1 style="margin:1px">{{ comment.comment }}</h1>
         {% load tz %}
-  
         <div style='margin:1px 1px 5px 1px'> {{ comment.create_time|localtime }}</div>
-      
     </div>
     <br>
 {% endfor %}
-
-	
-
 </body>
 </html>

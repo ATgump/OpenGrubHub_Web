@@ -18,11 +18,9 @@ from django.urls import path
 
 from .views import (
     CommentCreateView,
-    CommentListView,
 )
 
 app_name = "Community"
 urlpatterns = [
     path("", CommentCreateView.as_view(), name="community-home"),
-    path("list/",CommentListView.as_view(),name="comment-list"),
 ]

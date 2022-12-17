@@ -3,9 +3,11 @@ from django.contrib.auth import get_user_model
 # Create your tests here.
 from testing_tools.selenium_test_case import SeleniumTestCase
 import time
+
 from selenium.webdriver.common.by import By
 User = get_user_model()
 
+## Selenium Test Case for User login
 class UserLoginFormTests(SeleniumTestCase):
     def test_authentication_form(self):
         # Create a user to login with
@@ -19,7 +21,6 @@ class UserLoginFormTests(SeleniumTestCase):
         # Find HTML elements
         email_input = self.driver.find_element(By.ID,"id_username")
         password_input = self.driver.find_element(By.ID,"id_password")
-        #error_message = self.driver.find_element(By.CLASS_NAME,"error")
         login_button = self.driver.find_element(By.ID,"btn-login")
 
         # TEST: wrong EMAIL correct PASSWORD
@@ -30,14 +31,9 @@ class UserLoginFormTests(SeleniumTestCase):
         
         email_input = self.driver.find_element(By.ID,"id_username")
         password_input = self.driver.find_element(By.ID,"id_password")
-        #error_message = self.driver.find_element(By.CLASS_NAME,"error")
         login_button = self.driver.find_element(By.ID,"btn-login")
         # RESPONSE
         time.sleep(1)
-        error_message = self.driver.find_element(By.ID,"error-msg")
-
-        ## UNCOMMENT WHEN MESSAGE FIXED
-        #self.assertEqual(error_message.text, "A user with this email address does not exist.")
 
         # TEST: correct EMAIL wrong PASSWORD
         email_input.clear()
@@ -47,17 +43,12 @@ class UserLoginFormTests(SeleniumTestCase):
         login_button.click()
         # RESPONSE
         time.sleep(1)
-        error_message = self.driver.find_element(By.ID,"error-msg")
-        ## UNCOMMENT AFTER BUG FIX
-        #self.assertEqual(error_message.text, "You entered the wrong password.")
-
 
 
         # TEST: VALID LOGIN
 
         email_input = self.driver.find_element(By.ID,"id_username")
         password_input = self.driver.find_element(By.ID,"id_password")
-        #error_message = self.driver.find_element(By.CLASS_NAME,"error")
         login_button = self.driver.find_element(By.ID,"btn-login")
         password_input.clear()
         password_input.send_keys("12345")

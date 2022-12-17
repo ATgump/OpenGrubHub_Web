@@ -9,10 +9,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ API_KEY }}&libraries=places&callback=initAutocomplete" async defer></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'EntryPage/create-restaurant-user.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'EntryPage/css/create-restaurant-user.css' %}">
 </head>
 <body>
-    <script type="text/javascript" src="{% static 'EntryPage/create-restaurant-user.js' %}"></script>
+    <script type="text/javascript" src="{% static 'EntryPage/js/create-restaurant-user.js' %}"></script>
     <button class="open-button" onclick="openForm()">Restaurant Account Creation</button>
     <div class="form-popup" id="myForm">
         <form autocomplete="off" class="restaurant profile" method="post">{% csrf_token %}
@@ -23,32 +23,7 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
         </form>
     </div>  
-    
-    <!-- <form>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="first-name">First name</label>
-            <input id="first-name" type="text">
-          </div>
-          <div class="form-group">
-            <label for="last-name">Last name</label>
-            <input id="last-name" type="text">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="location">Location</label>
-            <input id="location" type="text">
-          </div>
-          <div class="form-group">
-            <label for="some-input">Some other input</label>
-            <input id="some-input" type="text">
-          </div>
-        </div>
-      </form>
- -->
-
-      
+     
 </body>
 
 </html>

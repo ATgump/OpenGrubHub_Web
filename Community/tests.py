@@ -1,7 +1,8 @@
 from django.test import TestCase
 from .forms import CommentForm
-# Create your tests here.
 
+
+## Unit Test(s) for community comment section
 class CommentFormTests(TestCase):
     def test_valid(self):
         form = CommentForm(data={"comment":"This is my test comment","user":"averygmp@gmail.com"})

@@ -1,10 +1,8 @@
 from django.test import TestCase
 from Profiles.models import User,CustomerProfile,RestaurantProfile
-from django.utils import timezone
-#from django.core.urlresolvers import reverse
-#from whatever.forms import WhateverForm
 
 # models test
+## test a user creation
 class UserTest(TestCase):
 
     def create_user_c(self, is_customer=True, email="testemail@gmail.com",username="testUN"):
@@ -18,7 +16,6 @@ class UserTest(TestCase):
         self.assertTrue(isinstance(w, User))
         self.assertTrue(isinstance(w2, User))
         self.assertEqual(w.__str__(), w.username)
-        #self.assertEqual(w2.__str__(), w2.username)
 
 class CustomerTest(TestCase):
     def create_customer(self, is_customer=True, email="testemail@gmail.com",username="testUN",date_of_birth = "7/20/1997"):
@@ -32,6 +29,7 @@ class CustomerTest(TestCase):
         self.assertTrue(isinstance(w.customer_profile,CustomerProfile))
         self.assertEqual(w.customer_profile.get_absolute_url(),f"/profiles/customer/{w.id}")
 
+## test restaurant creation
 class RestaurantTest(TestCase):
     @classmethod
     def create_restaurant(self, is_customer=False, email="testemail@gmail.com",username="testUN",restaurant_name = "mcdonalds", restaurant_address = "123 Test Address Drive", geolocation="90,17"):

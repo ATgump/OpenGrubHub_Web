@@ -12,7 +12,7 @@
 <body>
 
 <div id = "title"><p class="auto-style5"><span class="auto-style6">OpenGrubHub&nbsp; </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- <button class="auto-style7" name="Abutton1">Log in</button></p> -->
+
 <p class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 Make your life easier! </p>
 </div>
@@ -22,13 +22,8 @@ Make your life easier! </p>
 
 <div id= "guide">
 	<ul>
-		<!-- <li><a href="{% url 'EntryPage:entry_view' %}">TESTING ONLY</a></li> -->
-		<!-- Make search Go to the Restaurant List -->
 		<li><a href="{% url 'RestaurantFinder:home-list-view' %}">Restaurant's</a></li>
 
-		<!-- Change the about us HTML URL -->
-
-		<!-- ADD THESE URLS -->
 		{% if user.is_authenticated %}
 		{% if request.user.is_customer == True %}
 		<li><a href= "{% url 'ReservationApp:reservation-list' %}">View Reservation's</a></li>
@@ -47,8 +42,6 @@ Make your life easier! </p>
 		<li><a href= "{% url 'EntryPage:customer-create-view' %}">Create Account Customer</a></li>
 		{% endif %}
 		<li><a href="{% url 'EntryPage:about-us' %}">About</a></li>
-		<!-- <li><a href= "">Community</a></li>
-		<li><a href= "">Add Profile Image</a></li> -->
 
 	</ul>
 </div>

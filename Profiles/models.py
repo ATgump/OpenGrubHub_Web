@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,BaseUserManager,UserManager
+from django.contrib.auth.models import AbstractUser,UserManager
 
 # Create your models here.
 from django.db.models.signals import post_save
@@ -9,6 +9,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from star_ratings.models import Rating
 from django.utils.translation import gettext as _
 ## Change this to extend the User model
+## New user manager so I could get email to be the main field not username (we dont want usernames just emails)
 class UserManager(UserManager):
     """Define a model manager for User model with no username field."""
 
@@ -44,6 +45,7 @@ class UserManager(UserManager):
 
 
 class User(AbstractUser):
+    ## Field for checking if a user is a customer or restaurant
     is_customer = models.BooleanField(default=False)
     email = models.EmailField(_('email address'), unique=True, blank=True,error_messages={
             'unique': _("A user with that email already exists."),
@@ -55,8 +57,6 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = UserManager()
-    # class Meta:
-    #     proxy = True
     def __str__(self):
         if self.is_customer:
             return self.email
@@ -68,42 +68,35 @@ class CustomerProfile(models.Model):
         User, on_delete=models.CASCADE, related_name="customer_profile", null=True
     )
     date_of_birth = models.DateField(null=True, blank=True)
-
+    ## Define how to get absolute url to get customer profile
     def get_absolute_url(self):
         from django.urls import reverse
 
         return reverse("Profiles:CustomerProfile", kwargs={"id": self.user.id})
 
-    
-
-    # def __str__(self):
-    #     return self.user.username
-
-
-
 class RestaurantProfile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="restaurant_profile", null=True
     )
+    ## Restuarant address, lat, long, ratings, and name
     restaurant_address = map_fields.AddressField(max_length=200, null=True)
-    #geolocation = map_fields.GeoLocationField(max_length=100, null=True)
     lat = models.DecimalField(max_digits=22,decimal_places=16,null=True)
     long = models.DecimalField(max_digits=22,decimal_places=16,null=True)
     ratings = GenericRelation(Rating, related_query_name='ratings')
-    ## Get Profile image working
-    ##profile_image = models.ImageField(upload_to="/profile-photos",default = "/profile-photos/default.jfif",null=True)
+
+
     restaurant_name = models.CharField(_('restuarant name'), max_length=60, null=True)
+    ## Define how to get absolute url to get Restaurant profile
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse("Profiles:RestaurantProfile", kwargs={"id": self.user.id})
+    ## Define how to get absolute url to get Restaurant profile management section
     def get_absolute_url_manage(self):
         from django.urls import reverse
         return reverse("Profiles:RestaurantManage", kwargs={"id": self.user.id})
 
-    # def __str__(self):
-    #     return self.user.username
 
-
+### Signal for handling saving the profiles when the user is created
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if instance.is_customer:
