@@ -161,8 +161,6 @@ TIME_INPUT_FORMATS = ['%I:%M %p',]
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "ReservationApp/static",
-    BASE_DIR / "RestaurantFinder/static",
     BASE_DIR / "EntryPage/static",
     BASE_DIR / "Profiles/static",
     BASE_DIR / "Community/static",
