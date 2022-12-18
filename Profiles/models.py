@@ -68,12 +68,6 @@ class CustomerProfile(models.Model):
         User, on_delete=models.CASCADE, related_name="customer_profile", null=True
     )
     date_of_birth = models.DateField(null=True, blank=True)
-    ## Define how to get absolute url to get customer profile
-    def get_absolute_url(self):
-        from django.urls import reverse
-
-        return reverse("Profiles:CustomerProfile", kwargs={"id": self.user.id})
-
 class RestaurantProfile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="restaurant_profile", null=True
